@@ -1,0 +1,112 @@
+# Any line followed by a '#' character is ignored
+# Section headings must be in square brackets
+# Subsections within a section should follow the format:
+#   [filename within code directory][tab character \t][subsection title]
+# If using gedit, disable 'insert space instead of tab'
+
+[Template]
+template/template.h	Macros
+
+[Numerical algorithms]
+matematica/triangulo_pascal.cpp	Triângulo de Pascal
+matematica/gcd.cpp	GCD-LCM
+matematica/bezout.cpp	Bezout Theorem
+matematica/chinese_remainder.cpp	Teorema Chinês dos Restos
+matematica/crivo_eratostenes.cpp	Crivo de Eratóstenes
+matematica/divisors.cpp	Divisores de N
+matematica/number_theory.cpp	Funções com Números Primos (Crivo, Fatoração, PHI, etc)
+matematica/fast_pow.cpp	Exponenciação Modular Rápida
+matematica/fast_pow_matricial.cpp	Exponenciação de Matriz
+matematica/brent_cycle.cpp	Brent	Cycle Detection
+matematica/romberg.cpp	Romberg's method - Calcula Integral (UFS2010)
+matematica/pollard-rho.cpp	Pollard's rho algorithm (UFS2010)
+matematica/miller-rabin.cpp	Miller-Rabin's algorithm (UFS2010)
+matematica/num_digits_factorial.cpp	Quantidade de dígitos de N! na base B
+matematica/num_trailing_zeros.cpp	Quantiade de zeros a direita de N! na base B
+matematica/bsgs.cpp	Baby Step Giant Step
+matematica/primes_between.cpp	Primos num intervalo
+matematica/FFT.cpp	FFT
+
+
+[Geometria 2D]
+geometria/geometria2d-funcoes.cpp	Geometria 2D Library
+
+[Polígonos 2D]
+geometria/poligono2d.cpp	Polígono 2D Library
+geometria/convexhull.cpp	Convex Hull
+geometria/spanning_circle.cpp	Minimum Enclosing Circle
+
+[Geometria 3D]
+geometria/geometria3d-funcoes.cpp	Geometria 3D Library
+
+
+[Grafos]
+grafos/toposort.cpp	Topological Sort
+grafos/dijkstra.cpp	Dijkstra
+grafos/floyd_warshall.cpp	Floyd-Warshall
+grafos/bellman_ford.cpp	Bellman-Ford
+grafos/articulationPointAndBridge.cpp	Vértices de Articulação e Pontes
+grafos/tarjan.cpp	Tarjan
+grafos/kosaraju.cpp	Kosaraju
+grafos/2-sat.cpp	2-Sat
+grafos/lca.cpp	LCA
+grafos/matching.cpp	Maximum Bipartite Matching
+grafos/hopcroft_karp.cpp	Hopcroft Karp - Maximum Bipartite Matching (UNIFEI)
+grafos/flow.cpp	Network Flow (lento)
+grafos/dinic.cpp	Network Flow - Dinic
+grafos/mcmf_struct.cpp	Min Cost Max Flow
+grafos/mcmf_stefano.cpp	Min Cost Max Flow (Stefano) 
+grafos/tree_isomorphic.cpp	Tree Isomorphism
+grafos/stoer_wagner_minimum_cut.cpp	Stoer Wagner-Minimum Cut (UNIFEI)
+grafos/erdos_gallai.cpp	Erdos Gallai (UNIFEI)
+grafos/stable_marriage.cpp	Stable Marriage (UNIFEI)
+grafos/hungarian.cpp	Hungarian Max Bipartite Matching with Cost (UNIFEI)
+grafos/blossom.cpp	Blossom
+
+
+[Estruturas de Dados]
+estruturas/fenwick_tree.cpp	BIT
+estruturas/fenwick_tree2D.cpp	BIT 2D
+estruturas/rmq.cpp	RMQ
+estruturas/segment_tree_sum_lazy.cpp	Seg Tree com Lazy
+estruturas/union-find.cpp	Union-Find
+estruturas/treap.cpp	Treap
+estruturas/segtree2D.cpp	Seg Tree 2D
+estruturas/Polyce.cpp	Polyce
+estruturas/kd2.cpp	KD2
+
+
+[Strings]
+string/kmp.cpp	KMP
+#string/aho_corasick.cpp	Aho Corasick
+string/Aho-1.cpp	Aho Corasick
+string/suffix_array.cpp	Suffix Array
+string/SufixArray.cpp	Suffix Array (Gugu)
+string/hashing.cpp	Rolling Hash
+string/hash_lcp.cpp	Longest Commom Prefix with Hash
+string/hash_min_lexicographic.cpp	Minimum Lexicographic Rotation
+string/manacher.cpp	Longest Palindrome (Manacher algorithm)
+string/Automato_sufix.cpp	Autômato de Sufixos
+string/Z.cpp	Z Algorithm
+
+
+[PD]
+pd/soma2D.cpp	Soma acumulada 2D
+pd/knuth_mc.cpp	Knuth Optimization
+pd/CHT.cpp	Convex Hull Trick
+pd/lis.cpp	Longest Increasing Subsequence
+pd/kadane1d.cpp	Kadane 1D
+pd/kadane2d.cpp	Kadane 2D
+pd/mochila01.cpp	Knapsack0-1
+pd/edit_distance.cpp	Edit Distance
+
+
+[Sorting]
+#sorting/insertion.cpp	Insertion Sort
+#sorting/merge_sort.cpp	Merge Sort
+sorting/Merge_sort_ninv.cpp	Merge Sort com num de Inversoes
+sorting/quick_sort.cpp	Quick Sort
+
+
+[Miscelânia]
+miscelania/dates.cpp	Calendário
