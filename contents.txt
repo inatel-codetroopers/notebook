@@ -35,6 +35,7 @@ geometria/geometria2d-funcoes.cpp	Geometria 2D Library
 geometria/poligono2d.cpp	Polígono 2D Library
 geometria/convexhull.cpp	Convex Hull
 geometria/spanning_circle.cpp	Minimum Enclosing Circle
+geometria/abc.cpp ABC
 
 [Geometria 3D]
 geometria/geometria3d-funcoes.cpp	Geometria 3D Library
