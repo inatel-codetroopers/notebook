@@ -50,6 +50,7 @@ grafos/tarjan.cpp	Tarjan
 grafos/kosaraju.cpp	Kosaraju
 grafos/2-sat.cpp	2-Sat
 grafos/lca.cpp	LCA
+grafos/lca_ST.cpp LCA (Sparse Table)
 grafos/matching.cpp	Maximum Bipartite Matching
 grafos/hopcroft_karp.cpp	Hopcroft Karp - Maximum Bipartite Matching (UNIFEI)
 grafos/flow.cpp	Network Flow (lento)
@@ -72,6 +73,7 @@ estruturas/segment_tree_sum_lazy.cpp	Seg Tree com Lazy
 estruturas/union-find.cpp	Union-Find
 estruturas/treap.cpp	Treap
 estruturas/segtree2D.cpp	Seg Tree 2D
+estruturas/sparse_table.cpp Sparse Table
 estruturas/Polyce.cpp	Polyce
 estruturas/kd2.cpp	KD2
 
