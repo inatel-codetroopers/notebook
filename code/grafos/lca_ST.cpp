@@ -1,16 +1,34 @@
-// MAX -> N * 4
-// Consulta LCA em O(1)
-const int MAX = 4e3+3;
-vector<int> adj[MAX];
-int st[2][MAX][20];
-int h[MAX], g[MAX];
-vector<int> num;
-int f[MAX];
+/*
+Encontra o lca usando sparse table.
+O(NlogN) de pre-processamento
+O(1) em cada consulta
 
-void dfs(int u, int p) {	// chamar dfs(root, root) na main
+Como usar:
+	main:	level[root] = 0
+			dfs(root, root);
+	consulta:
+			lca(u,v)
+*/
+
+typedef pair<int, int> ii;
+
+#define MAXN	(1e5+1);
+#define LOGN	(23)
+
+vector<int> adj[MAXN];
+int level[MAXN];
+
+
+vector<int> num;
+int f[MAXN];
+ii st[4*MAXN][LOGN];
+
+void dfs(int u, int p) {
+	level[u] = level[p] + 1;
+	
 	f[u] = num.size();
-	h[u] = h[p]+1;
 	num.pb(u);
+	
 	rep(i, 0, (int)adj[u].size()) {
 		if(adj[u][i] == p) continue;
 		dfs(adj[u][i], u);
@@ -18,18 +36,23 @@ void dfs(int u, int p) {	// chamar dfs(root, root) na main
 	}
 }
 
-void SparseTable() {
-	rep(i, 0, (int)num.size()) st[1][i][0] = num[i];
-	rep(i, 0, (int)num.size()) st[0][i][0] = h[num[i]];
-	rep(j, 1, 20) for(int i = 0; (i+(1<<j)-1) < (int)num.size(); i++) {
-		st[0][i][j] = min(st[0][i][j-1], st[0][i+(1<<(j-1))][j-1]);
-		st[1][i][j] = st[0][i][j-1] < st[0][i+(1<<(j-1))][j-1] ? st[1][i][j-1] : 
-			st[1][i+(1<<(j-1))][j-1];
-	}
+ii comb(ii left, ii right)
+{
+	return min(left, right);
 }
 
-int query(int l, int r) {		// return lca entre os vertives (l, r)
-	int k = log2(r-l+1);
-	return st[0][l][k] < st[0][r-(1<<k)+1][k] ?
-		st[1][l][k] : st[1][r-(1<<k)+1][k];
+void SparseTable() {
+	rep(i, 0, (int)num.size()) st[i][0] = make_pair(level[num[i]], num[i]);
+	
+	rep(k, 1, LOGN) for(int i = 0; (i + (1<<k) - 1) < (int)num.size(); i++)
+		st[i][k] = comb(st[i][k - 1], st[i + (1<<(k-1))][k - 1]);
+}
+
+int lca(int u, int v)
+{
+	int l = f[u];
+	int r = f[v];
+
+	int k = log2(r - l + 1);
+	return comb(st[l][k], st[r - (1<<k) + 1][k]).second;
 }
