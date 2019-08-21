@@ -1,0 +1,13 @@
+{
+    "editor.rulers": [
+        70
+    ],
+    "files.associations": {
+        "deque": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "ostream": "cpp"
+    },
+	"editor.detectIndentation": true,
+	"editor.insertSpaces": false
+}

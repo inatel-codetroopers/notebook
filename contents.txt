@@ -41,14 +41,15 @@ geometria/geometria3d-funcoes.cpp	Geometria 3D Library
 
 
 [Grafos]
-grafos/toposort.cpp	Topological Sort
+grafos/dfs.cpp	dfs
+grafos/bfs.cpp	bfs
+grafos/toposort.cpp	Topological Sort (Bfs)
+grafos/tarjan.cpp	Tarjan (Scc)
+grafos/kosaraju.cpp	Kosaraju (Scc)
 grafos/dijkstra.cpp	Dijkstra
 grafos/floyd_warshall.cpp	Floyd-Warshall
 grafos/bellman_ford.cpp	Bellman-Ford
 grafos/articulationPointAndBridge.cpp	Vértices de Articulação e Pontes
-grafos/tarjan.cpp	Tarjan
-grafos/kosaraju.cpp	Kosaraju
-grafos/2-sat.cpp	2-Sat
 grafos/lca.cpp	LCA
 grafos/lca_ST.cpp	LCA (Sparse Table)
 grafos/matching.cpp	Maximum Bipartite Matching
@@ -57,6 +58,7 @@ grafos/flow.cpp	Network Flow (lento)
 grafos/dinic.cpp	Network Flow - Dinic
 grafos/mcmf_struct.cpp	Min Cost Max Flow
 grafos/mcmf_stefano.cpp	Min Cost Max Flow (Stefano) 
+grafos/2-sat.cpp	2-Sat
 grafos/tree_isomorphic.cpp	Tree Isomorphism
 grafos/stoer_wagner_minimum_cut.cpp	Stoer Wagner-Minimum Cut (UNIFEI)
 grafos/erdos_gallai.cpp	Erdos Gallai (UNIFEI)
