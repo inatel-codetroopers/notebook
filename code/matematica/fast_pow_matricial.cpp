@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 /**
 Calcula exponenciacao de matrizes de forma eficiente.
 @param ordem - a ordem da matriz mat
@@ -34,6 +37,15 @@ void mult(ll a[][ordem], ll b[][ordem]) {
 // Calcula mat^n
 // resultado fica em ans[][]
 
+
+typedef struct 
+{
+  vector<vector<ll> > m;
+  
+
+} matrix_t;
+
+
 void fastExp(ll E) {
   rep(i, 0, ordem)
     rep(j, 0, ordem)
@@ -43,4 +55,9 @@ void fastExp(ll E) {
     E >>= 1;
     mult(mat, mat);
   }
+}
+
+int main()
+{
+
 }
