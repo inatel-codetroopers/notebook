@@ -1,35 +1,46 @@
-// Calcula exponenciacao de matrizes de forma eficiente. fastExp()
-// calcula M[][] ^ n, e armazena o resultado em ans[][]. Eh util
-// para resolver recorrencias lineares do tipo 
-// F(n) = M * F(n-1)  =>  F(n) = (M^n)*F[0]
-const int M = 2; 
+/**
+Calcula exponenciacao de matrizes de forma eficiente.
+@param ordem - a ordem da matriz mat
+@param mat - a matriz a ser exponenciada
+@param E - expoente a ser utilizado
+@return ans - resultado da matriz mat elevada a E
+**/
+int ordem = 2; 
 ll mod = 1e9 + 7;
-int sz = 2;
-ll mat[M][M], ans[M][M], tmp[M][M];
+
+ll mat[ordem][ordem], ans[ordem][ordem], tmp[ordem][ordem];
 
 // multiplica as matrizes a[][] e b[][] e armazena em a[][] o
 // resultado
-void mult(ll a[][M], ll b[][M]) {
-  rep(i, 0, sz) rep(j, 0, sz) {
+
+void mult(ll a[][ordem], ll b[][ordem]) {
+  ll aux = 0;
+  rep(i, 0, ordem) rep(j, 0, ordem) {
     tmp[i][j] = 0;
-    rep(k, 0, sz) tmp[i][j] += a[i][k] * b[k][j];
-    tmp[i][j] %= mod;
+    rep(k, 0, ordem)
+    {
+      aux = a[i][k] * b[k][j];
+      if (aux >= mod)
+        aux %= mod;
+      tmp[i][j] += aux;
+      if (tmp[i][j] >= mod)
+        tmp[i][j] %= mod;
+    }
   }
   memcpy(a, tmp, sizeof tmp);
 }
 
-// calcula mat ^ n
-void fastExp(ll ans[][M], ll n) {
-  // inicializar mat, neste caso a matriz para calculo de fibonacci
-  mat[0][0] = mat[0][1] = mat[1][0] = 1;
-  mat[1][1] = 0;
-  // matriz identidade
-  rep(i, 0, sz) rep(j, 0, sz) ans[i][j] = (i == j);
-  while (n) {
-    if (n & 1) mult(ans, mat);
-    n >>= 1;
+
+// Calcula mat^n
+// resultado fica em ans[][]
+
+void fastExp(ll E) {
+  rep(i, 0, ordem)
+    rep(j, 0, ordem)
+      ans[i][j] = (i == j);
+  while (E) {
+    if (E & 1) mult(ans, mat);
+    E >>= 1;
     mult(mat, mat);
   }
-  // n-\'esino termo de fibonacci
-  // cout << ans[1][0]*fib(1) + ans[1][1] * fib(0) << "\n";
 }
