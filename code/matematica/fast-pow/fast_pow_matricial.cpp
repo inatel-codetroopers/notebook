@@ -1,10 +1,10 @@
 /**
  * fastpow() realiza exponenciacao rapida de matrizes
- * @param matrix_t M - matriz a ser elevada
- * @param ll expo - expoente
- * @param ll mod - o resultado sera calculado modulo este valor
- * @return - o resultado de (M ^ expo) % mod
- * @complexidade - O(size^3 * log(expo))
+ * #param matrix_t M - matriz a ser elevada
+ * #param ll expo - expoente
+ * #param ll mod - o resultado sera calculado modulo este valor
+ * #return - o resultado de (M ^ expo) % mod
+ * #complexidade - O(size^3 * log(expo))
 **/
 
 #define MAX (ChangeMe) // Max size of square matrix
