@@ -15,8 +15,8 @@ matematica/chinese_remainder.cpp	Teorema Chinês dos Restos
 matematica/crivo_eratostenes.cpp	Crivo de Eratóstenes
 matematica/divisors.cpp	Divisores de N
 matematica/number_theory.cpp	Funções com Números Primos (Crivo, Fatoração, PHI, etc)
-matematica/fast_pow.cpp	Exponenciação Modular Rápida
-matematica/fast_pow_matricial.cpp	Exponenciação de Matriz
+matematica/fast-pow/fast_pow.cpp	Exponenciação Modular Rápida
+matematica/fast-pow/fast_pow_matricial.cpp	Exponenciação de Matriz
 matematica/brent_cycle.cpp	Brent	Cycle Detection
 matematica/romberg.cpp	Romberg's method - Calcula Integral (UFS2010)
 matematica/pollard-rho.cpp	Pollard's rho algorithm (UFS2010)
