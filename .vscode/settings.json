@@ -62,4 +62,9 @@
         "typeinfo": "cpp",
         "valarray": "cpp"
     }
+    ,
+    "editor.rulers": [
+        72
+    ],
+    "C_Cpp.errorSquiggles": "Disabled"
 }
