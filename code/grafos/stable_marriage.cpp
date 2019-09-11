@@ -39,7 +39,8 @@ void stableMarriage() {
       int wom;
       while (42) {
         wom = L[man][p[man]++];
-        if (R2L[wom] < 0 || R[wom][man] > R[wom][R2L[wom]]) break;
+        if (R2L[wom] < 0 || R[wom][man] > R[wom][R2L[wom]])
+          break;
       }
       int hubby = R2L[wom];
       R2L[L2R[man] = wom] = man;

@@ -31,7 +31,8 @@ void add_edge(int u, int v, cap_type _cap, cost_type _cost) {
 // only if there is initial negative cycle
 void BellmanFord(int s, int t) {
   bool stop = false;
-  for (int i = 0; i < V; ++i) dist[i] = inf;
+  for (int i = 0; i < V; ++i)
+    dist[i] = inf;
   dist[s] = 0;
 
   for (int i = 1; i <= V && !stop; ++i) {
@@ -40,8 +41,7 @@ void BellmanFord(int s, int t) {
     for (int j = 0; j < E; ++j) {
       int u = to[j ^ 1], v = to[j];
 
-      if (cap[j] > 0 && dist[u] != inf &&
-          dist[u] + cost[j] < dist[v]) {
+      if (cap[j] > 0 && dist[u] != inf && dist[u] + cost[j] < dist[v]) {
         stop = false;
         dist[v] = dist[u] + cost[j];
       }
@@ -49,7 +49,8 @@ void BellmanFord(int s, int t) {
   }
 
   for (int i = 0; i < V; ++i)
-    if (dist[i] != inf) pot[i] = dist[i];
+    if (dist[i] != inf)
+      pot[i] = dist[i];
 }
 
 void mcmf(int s, int t) {
@@ -61,9 +62,10 @@ void mcmf(int s, int t) {
   while (true) {
     memset(pre, -1, sizeof(pre));
     memset(visited, false, sizeof(visited));
-    for (int i = 0; i < V; ++i) dist[i] = inf;
+    for (int i = 0; i < V; ++i)
+      dist[i] = inf;
 
-    priority_queue<pair<cost_type, int> > Q;
+    priority_queue<pair<cost_type, int>> Q;
     Q.push(make_pair(0, s));
     dist[s] = pre[s] = 0;
 
@@ -71,11 +73,13 @@ void mcmf(int s, int t) {
       int aux = Q.top().second;
       Q.pop();
 
-      if (visited[aux]) continue;
+      if (visited[aux])
+        continue;
       visited[aux] = true;
 
       for (int e = last[aux]; e != -1; e = nex[e]) {
-        if (cap[e] <= 0) continue;
+        if (cap[e] <= 0)
+          continue;
         cost_type new_dist =
             dist[aux] + cost[e] + pot[aux] - pot[to[e]];
         if (new_dist < dist[to[e]]) {
@@ -86,7 +90,8 @@ void mcmf(int s, int t) {
       }
     }
 
-    if (pre[t] == -1) break;
+    if (pre[t] == -1)
+      break;
 
     cap_type f = cap[pre[t]];
     for (int i = t; i != s; i = to[pre[i] ^ 1])
@@ -100,7 +105,8 @@ void mcmf(int s, int t) {
     flowCost += f * (dist[t] - pot[s] + pot[t]);
 
     for (int i = 0; i < V; ++i)
-      if (pre[i] != -1) pot[i] += dist[i];
+      if (pre[i] != -1)
+        pot[i] += dist[i];
   }
 }
 

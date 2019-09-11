@@ -15,15 +15,18 @@ void add(int a, int b, int cap_ab, int cap_ba) {
 }
 
 int dfs(int src, int snk, int fl) {
-  if (vis[src]) return 0;
-  if (snk == src) return fl;
+  if (vis[src])
+    return 0;
+  if (snk == src)
+    return fl;
   vis[src] = 1;
   rep(i, 0, edge[src].size()) {
     int v = edge[src][i];
     int x = min(fl, cap[src][v]);
     if (x > 0) {
       x = dfs(v, snk, x);
-      if (!x) continue;
+      if (!x)
+        continue;
       cap[src][v] -= x;
       cap[v][src] += x;
       return x;
@@ -37,7 +40,8 @@ int flow(int src, int snk) {
   while (42) {
     memset(vis, 0, sizeof vis);
     int delta = dfs(src, snk, 1 << 30);
-    if (!delta) break;
+    if (!delta)
+      break;
     ret += delta;
   }
   return ret;

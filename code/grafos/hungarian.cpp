@@ -43,7 +43,8 @@ struct Hungarian {
   }
 
   void add_edge(int x, int y, int peso) {
-    if (!ehMaximo) peso *= (-1);
+    if (!ehMaximo)
+      peso *= (-1);
     cost[x][y] = peso;
   }
 
@@ -54,7 +55,8 @@ struct Hungarian {
     memset(yx, -1, sizeof(yx));
     init_labels();
     augment();
-    for (int x = 0; x < n; ++x) match_value += cost[x][xy[x]];
+    for (int x = 0; x < n; ++x)
+      match_value += cost[x][xy[x]];
     return match_value;
   }
 
@@ -62,11 +64,13 @@ struct Hungarian {
     memset(lx, 0, sizeof(lx));
     memset(ly, 0, sizeof(ly));
     for (int x = 0; x < n; ++x)
-      for (int y = 0; y < n; ++y) lx[x] = max(lx[x], cost[x][y]);
+      for (int y = 0; y < n; ++y)
+        lx[x] = max(lx[x], cost[x][y]);
   }
 
   void augment() {
-    if (pairs == n) return;
+    if (pairs == n)
+      return;
     int x, y, root;
     int q[MAXN], wr = 0, rd = 0;
     memset(S, false, sizeof(S));
@@ -88,14 +92,17 @@ struct Hungarian {
         x = q[rd++];
         for (y = 0; y < n; ++y)
           if (cost[x][y] == lx[x] + ly[y] && !T[y]) {
-            if (yx[y] == -1) break;
+            if (yx[y] == -1)
+              break;
             T[y] = true;
             q[wr++] = yx[y];
             add(yx[y], x);
           }
-        if (y < n) break;
+        if (y < n)
+          break;
       }
-      if (y < n) break;
+      if (y < n)
+        break;
       update_labels();
       wr = rd = 0;
       for (y = 0; y < n; ++y)
@@ -111,7 +118,8 @@ struct Hungarian {
             }
           }
         }
-      if (y < n) break;
+      if (y < n)
+        break;
     }
     if (y < n) {
       ++pairs;
@@ -137,13 +145,17 @@ struct Hungarian {
   void update_labels() {
     int x, y, delta = INF;
     for (y = 0; y < n; ++y)
-      if (!T[y]) delta = min(delta, slack[y]);
+      if (!T[y])
+        delta = min(delta, slack[y]);
     for (x = 0; x < n; ++x)
-      if (S[x]) lx[x] -= delta;
+      if (S[x])
+        lx[x] -= delta;
     for (y = 0; y < n; ++y)
-      if (T[y]) ly[y] += delta;
+      if (T[y])
+        ly[y] += delta;
     for (y = 0; y < n; ++y)
-      if (!T[y]) slack[y] -= delta;
+      if (!T[y])
+        slack[y] -= delta;
   }
 
   int casouComX(int x) { return xy[x]; }
@@ -163,7 +175,8 @@ int main() {
     int x, y, w, aux[L][R];
     memset(aux, 0, sizeof aux);
     while (scanf("%d %d %d", &x, &y, &w) != EOF) {
-      if (x == 0 && y == 0 && w == 0) break;
+      if (x == 0 && y == 0 && w == 0)
+        break;
       aux[x - 1][y - 1] += w;
     }
     for (int x = 0; x < L; x++) {

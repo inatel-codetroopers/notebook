@@ -1,9 +1,7 @@
 struct point {
   int x, y, z;
   point(int x = 0, int y = 0, int z = 0) : x(x), y(y), z(z) {}
-  point operator-(point q) {
-    return point(x - q.x, y - q.y, z - q.z);
-  }
+  point operator-(point q) { return point(x - q.x, y - q.y, z - q.z); }
   int operator*(point q) { return x * q.x + y * q.y + z * q.z; }
 };
 
@@ -23,29 +21,32 @@ struct KDTreeNode {
   ~KDTreeNode() { delete below, above; }
   int diff(const point &pt) {
     switch (level) {
-      case 0:
-        return pt.x - p.x;
-      case 1:
-        return pt.y - p.y;
-      case 2:
-        return pt.z - p.z;
+    case 0:
+      return pt.x - p.x;
+    case 1:
+      return pt.y - p.y;
+    case 2:
+      return pt.z - p.z;
     }
     return 0;
   }
   ll distSq(point &q) { return (p - q) * (p - q); }
   int rangeCount(point &pt, ll K) {
     int count = (distSq(pt) <= K * K) ? 1 : 0;
-    if (count) vans.push(-sqrt(distSq(pt)));
+    if (count)
+      vans.push(-sqrt(distSq(pt)));
 
     int d = diff(pt);
-    if (~d <= K && above != 0) count += above->rangeCount(pt, K);
-    if (d <= K && below != 0) count += below->rangeCount(pt, K);
+    if (~d <= K && above != 0)
+      count += above->rangeCount(pt, K);
+    if (d <= K && below != 0)
+      count += below->rangeCount(pt, K);
     return count;
   }
 };
 
 class KDTree {
- public:
+public:
   polygon P;
   KDTreeNode *root;
   int dimention;
@@ -64,13 +65,12 @@ class KDTree {
     return count;
   }
 
- protected:
+protected:
   void build() {
     // random_shuffle(all(P));
     rep(i, 0, P.size()) { root = insert(root, P[i], -1); }
   }
-  KDTreeNode *insert(KDTreeNode *t, const point &pt,
-                     int parentLevel) {
+  KDTreeNode *insert(KDTreeNode *t, const point &pt, int parentLevel) {
     if (t == 0) {
       t = new KDTreeNode(pt, (parentLevel + 1) % dimention);
       return t;
@@ -106,21 +106,25 @@ int main() {
     int ans = 0;
     rep(i, 0, CC) {
       scanf("%d %d", &e.x, &e.y);
-      if (st.count(mp(e.x, e.y))) continue;
+      if (st.count(mp(e.x, e.y)))
+        continue;
 
       ll at = 0;
       rep(i, 0, 30) {
         at = ll(1) << i;
-        while (!vans.empty()) vans.pop();
+        while (!vans.empty())
+          vans.pop();
         int aux = tree.root->rangeCount(e, at);
-        if (aux >= KK) break;
+        if (aux >= KK)
+          break;
       }
       double sum = 0.0;
       rep(i, 0, KK) {
         sum += -vans.top();
         vans.pop();
       }
-      if (sum >= DD) ans++;
+      if (sum >= DD)
+        ans++;
     }
     printf("%d\n", ans);
   }

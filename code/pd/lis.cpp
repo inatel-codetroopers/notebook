@@ -16,7 +16,7 @@ void reconstruct_print(int end) {
 }
 int lis() {
   int L[MAX_N], L_id[MAX_N];
-  int li = 0, lf = 0;  // lis ini, lis end
+  int li = 0, lf = 0; // lis ini, lis end
   rep(i, 0, N) {
     int pos = lower_bound(L, L + li, vet[i]) - L;
     L[pos] = vet[i];

@@ -6,7 +6,8 @@ int n;
 ll a[MAXN], m[MAXN];
 ll crt() {
   ll M = 1, x = 0;
-  for (int i = 0; i < n; ++i) M *= m[i];
+  for (int i = 0; i < n; ++i)
+    M *= m[i];
   for (int i = 0; i < n; ++i)
     x += a[i] * invMod(M / m[i], m[i]) * (M / m[i]);
   return (((x % M) + M) % M);

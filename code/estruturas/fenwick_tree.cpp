@@ -8,13 +8,15 @@ int N;
 // ATUALIZA UM INDICE i, CONSULTA UM INTERVALO (i,j)
 // update(i, valor) faz A[i] += valor em log(N)
 void update(int i, ll valor) {
-  for (; i <= N; i += i & -i) ft[i] += valor;
+  for (; i <= N; i += i & -i)
+    ft[i] += valor;
 }
 
 // query(i) retorna a soma A[1] + ... + A[i] em log(N)
 ll query(int i) {
   ll sum = 0;
-  for (; i > 0; i -= i & -i) sum += ft[i];
+  for (; i > 0; i -= i & -i)
+    sum += ft[i];
   return sum;
 }
 

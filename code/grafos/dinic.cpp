@@ -19,10 +19,10 @@ void init(int _nnode, int _src, int _snk) {
 }
 
 void add(int a, int b, int c1, int c2) {
-  to[nedge] = b, cap[nedge] = c1, flow[nedge] = 0,
-  prox[nedge] = fin[a], fin[a] = nedge++;
-  to[nedge] = a, cap[nedge] = c2, flow[nedge] = 0,
-  prox[nedge] = fin[b], fin[b] = nedge++;
+  to[nedge] = b, cap[nedge] = c1, flow[nedge] = 0, prox[nedge] = fin[a],
+  fin[a] = nedge++;
+  to[nedge] = a, cap[nedge] = c2, flow[nedge] = 0, prox[nedge] = fin[b],
+  fin[b] = nedge++;
 }
 
 bool bfs() {
@@ -44,8 +44,9 @@ bool bfs() {
 }
 
 int dfs(int u, int fl) {
-  if (u == snk) return fl;
-  for (int& e = pro[u]; e >= 0; e = prox[e]) {
+  if (u == snk)
+    return fl;
+  for (int &e = pro[u]; e >= 0; e = prox[e]) {
     int v = to[e];
     if (flow[e] < cap[e] && dist[v] == dist[u] + 1) {
       int x = dfs(v, min(cap[e] - flow[e], fl));
@@ -64,7 +65,8 @@ ll dinic() {
     FOR(i, 1, nnode) pro[i] = fin[i];
     while (true) {
       int delta = dfs(src, inf);
-      if (!delta) break;
+      if (!delta)
+        break;
       ret += delta;
     }
   }

@@ -9,11 +9,12 @@ int Kadane2D() {
     rep(right, left, C) {
       rep(i, 0, L) pd[i] += mat[i][right];
       int sum = aux = 0;
-      rep(i, 0, L) {  // Kadane1D
+      rep(i, 0, L) { // Kadane1D
         sum += pd[i];
         if (sum > ret)
           ret = sum, x1 = aux, y1 = left, x2 = i, y2 = right;
-        if (sum < 0) sum = 0, aux = i + 1;
+        if (sum < 0)
+          sum = 0, aux = i + 1;
       }
     }
   }

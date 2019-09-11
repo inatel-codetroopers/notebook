@@ -4,20 +4,22 @@
 vector<int> adj[2 * MAXV];
 vector<int> radj[2 * MAXV];
 int seen[2 * MAXV], comp[2 * MAXV], order[2 * MAXV], ncomp, norder;
-int N;  // #variaveis
-int n;  // #vertices
+int N; // #variaveis
+int n; // #vertices
 
 #define NOT(x) ((x <= N) ? (x + N) : (x - N))
 #define quero 1
 void add_edge(int a, int b, int opcao) {
-  if (a > b) swap(a, b);
-  if (b == 0) return;
+  if (a > b)
+    swap(a, b);
+  if (b == 0)
+    return;
   if (a == 0) {
     if (opcao == quero)
       adj[NOT(b)].pb(b);
     else
       adj[b].pb(NOT(b));
-  } else {  // normal...
+  } else { // normal...
     if (opcao == quero) {
       adj[NOT(a)].pb(b);
       adj[NOT(b)].pb(a);
@@ -46,8 +48,7 @@ void dfs2(int u) {
   comp[u] = ncomp;
 }
 void strongly_connected_components() {
-  rep(v, 1, n + 1) rep(i, 0, (int)adj[v].size()) radj[adj[v][i]].pb(
-      v);
+  rep(v, 1, n + 1) rep(i, 0, (int)adj[v].size()) radj[adj[v][i]].pb(v);
 
   norder = 0;
   memset(seen, 0, sizeof seen);
@@ -69,7 +70,8 @@ bool sat2() {
 int main() {
   int Clientes;
   while (cin >> Clientes >> N) {
-    if (Clientes == 0 && N == 0) break;
+    if (Clientes == 0 && N == 0)
+      break;
     n = 2 * N;
     init();
     int u, v;

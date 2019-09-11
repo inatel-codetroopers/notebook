@@ -62,8 +62,10 @@ int maxMatching() {
     fill(vis, vis + n1, false);
     int f = 0;
     for (int u = 0; u < n1; ++u)
-      if (!used[u] && dfs(u)) ++f;
-    if (!f) return res;
+      if (!used[u] && dfs(u))
+        ++f;
+    if (!f)
+      return res;
     res += f;
   }
 }

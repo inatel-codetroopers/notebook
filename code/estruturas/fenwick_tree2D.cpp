@@ -6,17 +6,20 @@ int L, C;
 // O(log(N))
 void update(int x, int y, int v) {
   for (; x <= L; x += x & -x)
-    for (int yy = y; yy <= C; yy += yy & -yy) ft[x][yy] += v;
+    for (int yy = y; yy <= C; yy += yy & -yy)
+      ft[x][yy] += v;
 }
 
 // query(x,y) retorna o somatorio da submatriz definida por
 // (1,1)->(x,y) .: sum += M[i][j] para todo 1 <= i <= x e 1 <= j <= y,
 // em O(log(N))
 ll query(int x, int y) {
-  if (x <= 0 || y <= 0) return 0;
+  if (x <= 0 || y <= 0)
+    return 0;
   ll sum = 0;
   for (; x > 0; x -= x & -x)
-    for (int yy = y; yy > 0; yy -= yy & -yy) sum += ft[x][yy];
+    for (int yy = y; yy > 0; yy -= yy & -yy)
+      sum += ft[x][yy];
   return sum;
 }
 

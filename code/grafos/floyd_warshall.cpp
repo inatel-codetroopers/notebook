@@ -1,11 +1,11 @@
 #define MAXV 401
 int adj[MAXV][MAXV], path[MAXV][MAXV];
-int n, m;  // #vertices, #arestas
+int n, m; // #vertices, #arestas
 // adj[u][v] = custo de {U->V}
 // path[u][v] = k .: K vem logo apos U no caminho ate V
 void read_graph() {
-  memset(adj, INF, sizeof adj);  // para menor caminho
-  rep(i, 0, n) adj[i][i] = 0;    // para menor caminho
+  memset(adj, INF, sizeof adj); // para menor caminho
+  rep(i, 0, n) adj[i][i] = 0;   // para menor caminho
   int u, v, w;
   rep(i, 0, m) {
     cin >> u >> v >> w;

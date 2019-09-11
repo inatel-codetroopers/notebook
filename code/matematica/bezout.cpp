@@ -6,7 +6,8 @@ struct Triple {
   Triple(ll q, ll w, ll e) : d(q), x(w), y(e) {}
 };
 Triple egcd(ll a, ll b) {
-  if (!b) return Triple(a, 1, 0);
+  if (!b)
+    return Triple(a, 1, 0);
   Triple q = egcd(b, a % b);
   return Triple(q.d, q.y, q.x - a / b * q.y);
 }
@@ -15,6 +16,7 @@ Triple egcd(ll a, ll b) {
 // que (A*X)%N = 1
 ll invMod(ll a, ll n) {
   Triple t = egcd(a, n);
-  if (t.d > 1) return 0;
+  if (t.d > 1)
+    return 0;
   return (t.x % n + n) % n;
 }

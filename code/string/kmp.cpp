@@ -13,12 +13,15 @@ void kmp(string text, string pattern) {
     pi[i] = pi[i - 1];
     while (pi[i] >= 0 && pattern[pi[i] + 1] != pattern[i])
       pi[i] = pi[pi[i]];
-    if (pattern[pi[i] + 1] == pattern[i]) ++pi[i];
+    if (pattern[pi[i] + 1] == pattern[i])
+      ++pi[i];
   }
-  int k = -1;  // k+1 eh o tamanho do match atual
+  int k = -1; // k+1 eh o tamanho do match atual
   rep(i, 0, text.size()) {
-    while (k >= 0 && pattern[k + 1] != text[i]) k = pi[k];
-    if (pattern[k + 1] == text[i]) ++k;
+    while (k >= 0 && pattern[k + 1] != text[i])
+      k = pi[k];
+    if (pattern[k + 1] == text[i])
+      ++k;
     if (k + 1 == pattern.size()) {
       res[nres++] = i - k;
       k = pi[k];

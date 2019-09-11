@@ -4,7 +4,7 @@
 #define MAXV 400
 
 // Vertices indexados em 0.
-int V, E;  // #vertices, #arestas
+int V, E; // #vertices, #arestas
 vector<ii> adj[MAXV];
 ll dist[MAXV];
 
@@ -20,9 +20,10 @@ bool bellman(int s) {
   // verifica se tem ciclo com custo negativo
   rep(u, 0, V) rep(j, 0, adj[u].size()) {
     int v = adj[u][j].F, duv = adj[u][j].S;
-    if (dist[v] > dist[u] + duv) return false;
+    if (dist[v] > dist[u] + duv)
+      return false;
   }
   return true;
 }
 
-int main() {return 0;}
+int main() { return 0; }
