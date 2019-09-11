@@ -11,12 +11,14 @@ void preCalc(int N, int BASE) {
   roots[NN + 1] = comp(cos(2 * PI / N), sin(2 * PI / N));
   for (int i = 2; i < NN; ++i)
     roots[NN + i] = roots[NN + i - 1] * roots[NN + 1];
-  for (int i = NN - 1; i > 0; --i) roots[i] = roots[2 * i];
+  for (int i = NN - 1; i > 0; --i)
+    roots[i] = roots[2 * i];
 }
 
 void fft(vector<comp> &a, bool invert) {
   int N = a.size();
-  if (invert) rep(i, 0, N) a[i] = conj(a[i]);
+  if (invert)
+    rep(i, 0, N) a[i] = conj(a[i]);
   rep(i, 0, N) if (i < rev[i]) swap(a[i], a[rev[i]]);
   for (int k = 1; k < N; k *= 2) {
     for (int i = 0; i < N; i += 2 * k) {
@@ -27,7 +29,8 @@ void fft(vector<comp> &a, bool invert) {
       }
     }
   }
-  if (invert) rep(i, 0, a.size()) a[i] /= N;
+  if (invert)
+    rep(i, 0, a.size()) a[i] /= N;
 }
 
 vector<comp> multiply_real(vector<comp> a, vector<comp> b,
@@ -36,7 +39,8 @@ vector<comp> multiply_real(vector<comp> a, vector<comp> b,
   int m = b.size();
 
   int base = 0, N = 1;
-  while (N < n + m - 1) base++, N <<= 1;
+  while (N < n + m - 1)
+    base++, N <<= 1;
   preCalc(N, base);
 
   a.resize(N, comp(0, 0));

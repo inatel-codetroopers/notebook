@@ -15,7 +15,7 @@ struct MCMF {
 
   MCMF(int NN) : N(NN) {}
 
-  void add(int x, int y, ctype cap, ctype cost) {  // cost >= 0
+  void add(int x, int y, ctype cap, ctype cost) { // cost >= 0
     Edge e1 = {x, y, cap, cost}, e2 = {y, x, 0, -cost};
     adj[e1.x].push_back(E.size());
     E.push_back(e1);
@@ -28,11 +28,13 @@ struct MCMF {
     flowVal = flowCost = 0;
     memset(phi, 0, sizeof(phi));
     while (true) {
-      for (x = 0; x < N; x++) prev[x] = -1;
-      for (x = 0; x < N; x++) dist[x] = INF;
+      for (x = 0; x < N; x++)
+        prev[x] = -1;
+      for (x = 0; x < N; x++)
+        dist[x] = INF;
       dist[s] = prev[s] = 0;
 
-      set<pair<ctype, int> > Q;
+      set<pair<ctype, int>> Q;
       Q.insert(make_pair(dist[s], s));
       while (!Q.empty()) {
         x = Q.begin()->second;
@@ -40,7 +42,8 @@ struct MCMF {
         for (vector<int>::iterator it = adj[x].begin();
              it != adj[x].end(); it++) {
           const Edge &e = E[*it];
-          if (e.cap <= 0) continue;
+          if (e.cap <= 0)
+            continue;
           ctype cc = e.cost + phi[x] - phi[e.y];
           if (dist[x] + cc < dist[e.y]) {
             Q.erase(make_pair(dist[e.y], e.y));
@@ -50,7 +53,8 @@ struct MCMF {
           }
         }
       }
-      if (prev[t] == -1) break;
+      if (prev[t] == -1)
+        break;
 
       ctype z = INF;
       for (x = t; x != s; x = E[prev[x]].x)
@@ -62,7 +66,8 @@ struct MCMF {
       flowVal += z;
       flowCost += z * (dist[t] - phi[s] + phi[t]);
       for (x = 0; x < N; x++)
-        if (prev[x] != -1) phi[x] += dist[x];
+        if (prev[x] != -1)
+          phi[x] += dist[x];
     }
   }
 };

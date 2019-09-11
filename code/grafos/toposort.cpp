@@ -12,8 +12,7 @@ void topo_sort(int N) {
   // usar uma priority_queue, outra estrutura para ordenar os vertices
   vector<int> in_degree(N, 0);
 
-  rep(i, 0, N) rep(j, 0, adj[i].size())
-    in_degree[adj[i][j]]++;
+  rep(i, 0, N) rep(j, 0, adj[i].size()) in_degree[adj[i][j]]++;
 
   rep(i, 0, N) if (in_degree[i] == 0) q.push(i);
   while (!q.empty()) {
@@ -23,7 +22,8 @@ void topo_sort(int N) {
     rep(i, 0, adj[u].size()) {
       int v = adj[u][i];
       in_degree[v]--;
-      if (in_degree[v] == 0) q.push(v);
+      if (in_degree[v] == 0)
+        q.push(v);
     }
   }
   if (ordem.size() != N) {

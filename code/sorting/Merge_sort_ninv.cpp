@@ -1,5 +1,5 @@
 // Ordena arr aplicando mergesort e conta o numero de inversoes
-void merge(int* arr, int size1, int size2, ll& inversions) {
+void merge(int *arr, int size1, int size2, ll &inversions) {
   int temp[size1 + size2 + 2];
   int ptr1 = 0, ptr2 = 0;
 
@@ -15,11 +15,13 @@ void merge(int* arr, int size1, int size2, ll& inversions) {
     }
   }
 
-  for (int i = 0; i < size1 + size2; i++) arr[i] = temp[i];
+  for (int i = 0; i < size1 + size2; i++)
+    arr[i] = temp[i];
 }
 
-void mergeSort(int* arr, int size, ll& inversions) {
-  if (size == 1) return;
+void mergeSort(int *arr, int size, ll &inversions) {
+  if (size == 1)
+    return;
 
   int size1 = size / 2, size2 = size - size1;
   mergeSort(arr, size1, inversions);

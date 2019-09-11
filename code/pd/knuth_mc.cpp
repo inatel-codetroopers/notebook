@@ -2,14 +2,19 @@ int N, B, C, yep, save[MAXN][MAXN], sav[MAXN];
 ll n[MAXN], mc[MAXN][MAXN], se[MAXN], sd[MAXN], pd[MAXN][MAXN];
 
 ll solve(int i, int k) {
-  if (i == N) return 0;
-  if (k == 1) return pd[i][k] = mc[i][N - 1];
-  if (pd[i][k] != -1) return pd[i][k];
+  if (i == N)
+    return 0;
+  if (k == 1)
+    return pd[i][k] = mc[i][N - 1];
+  if (pd[i][k] != -1)
+    return pd[i][k];
 
   ll ret = LINF;
   int ini = i, fim = N - k + 1, best = -1;
-  if (i && save[i - 1][k]) ini = save[i - 1][k];
-  if (save[i][k - 1]) fim = save[i][k - 1] + 1;
+  if (i && save[i - 1][k])
+    ini = save[i - 1][k];
+  if (save[i][k - 1])
+    fim = save[i][k - 1] + 1;
 
   rep(l, ini, fim) {
     ll aux = solve(l + 1, k - 1) + mc[i][l];
@@ -29,7 +34,8 @@ int main() {
   rep(i, 1, N) se[i] = se[i - 1] + n[i];
 
   sd[N - 1] = n[N - 1];
-  for (int i = N - 2; i >= 0; i--) sd[i] = sd[i + 1] + n[i];
+  for (int i = N - 2; i >= 0; i--)
+    sd[i] = sd[i + 1] + n[i];
 
   rep(i, 1, N) pd[0][i] = pd[0][i - 1] + se[i - 1];
   for (int i = N - 2; i >= 0; i--)
@@ -53,7 +59,8 @@ int main() {
       mc[i][j] = pd[i][ini] + pd[j][ini], save[i][j] = ini;
       rep(k, ini + 1, j + 1) {
         ll a = pd[i][k] + pd[j][k];
-        if (mc[i][j] <= a) break;
+        if (mc[i][j] <= a)
+          break;
         mc[i][j] = a;
         save[i][j] = k;
       }

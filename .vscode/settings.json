@@ -64,7 +64,7 @@
     }
     ,
     "editor.rulers": [
-        72
+        71
     ],
     "C_Cpp.errorSquiggles": "Disabled"
 }

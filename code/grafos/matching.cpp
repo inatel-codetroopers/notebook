@@ -8,12 +8,13 @@ int match[MAXV], V, X, Y;
 bool vis[MAXV];
 
 int aug(int v) {
-  if (vis[v]) return 0;
+  if (vis[v])
+    return 0;
   vis[v] = true;
   rep(i, 0, adj[v].size()) {
     int r = adj[v][i];
     if (match[r] == -1 || aug(match[r])) {
-      match[r] = v;  // augmenting path
+      match[r] = v; // augmenting path
       return 1;
     }
   }

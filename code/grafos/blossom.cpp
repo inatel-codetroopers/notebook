@@ -2,7 +2,7 @@
 // Armazenar em n a quantidade de vertice e em mat[][] as adjacencias.
 // edmond(n) retorna o emparelhamento maximo.
 typedef vector<int> VI;
-typedef vector<vector<int> > VVI;
+typedef vector<vector<int>> VVI;
 
 int mat[205][205], n;
 
@@ -12,12 +12,14 @@ VI vis, inactive, match;
 int N;
 
 bool dfs(int x, VI &blossom) {
-  if (inactive[x]) return false;
+  if (inactive[x])
+    return false;
   int i, y;
   vis[x] = 0;
   for (i = adj[x].size() - 1; i >= 0; i--) {
     y = adj[x][i];
-    if (inactive[y]) continue;
+    if (inactive[y])
+      continue;
     if (vis[y] == -1) {
       vis[y] = 1;
       if (match[y] == -1 || dfs(match[y], blossom)) {
@@ -43,12 +45,15 @@ bool augment() {
   VI blossom, mark;
   int i, j, k, s, x;
   for (i = 0; i < N; i++) {
-    if (match[i] != -1) continue;
+    if (match[i] != -1)
+      continue;
     blossom.clear();
     vis = VI(N + 1, -1);
-    if (!dfs(i, blossom)) continue;
+    if (!dfs(i, blossom))
+      continue;
     s = blossom.size();
-    if (s == 0) return true;
+    if (s == 0)
+      return true;
 
     mark = VI(N + 1, -1);
     for (j = 0; j < s - 1; j++) {
@@ -63,16 +68,19 @@ bool augment() {
 
     adj[N].clear();
     for (j = 0; j < N; j++) {
-      if (mark[j] != -1) adj[N].pb(j), adj[j].pb(N);
+      if (mark[j] != -1)
+        adj[N].pb(j), adj[j].pb(N);
     }
 
     match[N] = -1;
     N++;
-    if (!augment()) return false;
+    if (!augment())
+      return false;
     N--;
 
     for (j = 0; j < N; j++) {
-      if (mark[j] != -1) adj[j].pop_back();
+      if (mark[j] != -1)
+        adj[j].pop_back();
     }
     for (j = 0; j < s - 1; j++) {
       inactive[blossom[j]] = 0;
@@ -115,6 +123,7 @@ int edmond(int n) {
   }
   match = VI(2 * N + 1, -1);
   inactive = VI(2 * N + 1);
-  while (augment()) ret++;
+  while (augment())
+    ret++;
   return ret;
 }

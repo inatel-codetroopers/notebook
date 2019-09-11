@@ -16,7 +16,8 @@ int g[NN][NN], v[NN], w[NN], na[NN], n;
 bool a[NN];
 int stoer_wagner() {
   // init the remaining vertex set
-  for (int i = 0; i < n; i++) v[i] = i;
+  for (int i = 0; i < n; i++)
+    v[i] = i;
   // run Stoer-Wagner
   int best = MAXW * n * n;
   while (n > 1) {
@@ -33,7 +34,8 @@ int stoer_wagner() {
       // find the most tightly connected non-A vertex
       int zj = -1;
       for (int j = 1; j < n; j++)
-        if (!a[v[j]] && (zj < 0 || w[j] > w[zj])) zj = j;
+        if (!a[v[j]] && (zj < 0 || w[j] > w[zj]))
+          zj = j;
       // add it to A
       a[v[zj]] = true;
       // last vertex?
@@ -50,7 +52,8 @@ int stoer_wagner() {
       prev = v[zj];
       // update the weights of its neighbours
       for (int j = 1; j < n; j++)
-        if (!a[v[j]]) w[j] += g[v[zj]][v[j]];
+        if (!a[v[j]])
+          w[j] += g[v[zj]][v[j]];
     }
   }
   return best;

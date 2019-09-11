@@ -9,7 +9,7 @@
 
 ll fastpow(ll b, ll expo, ll mod) {
   ll ret = 1, pot = b % mod;
-  while (expo){
+  while (expo) {
     if (expo & 1) {
       ret = (ret * pot) % mod;
     }

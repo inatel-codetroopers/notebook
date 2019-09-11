@@ -44,8 +44,9 @@ bool bfs() {
 }
 
 int dfs(int u, int fl) {
-  if (u == snk) return fl;
-  for (int& e = pro[u]; e >= 0; e = prox[e]) {
+  if (u == snk)
+    return fl;
+  for (int &e = pro[u]; e >= 0; e = prox[e]) {
     int v = to[e];
     if (flow[e] < cap[e] && dist[v] == dist[u] + 1) {
       int x = dfs(v, min(cap[e] - flow[e], fl));
@@ -64,7 +65,8 @@ ll dinic() {
     FOR(i, 1, nnode) pro[i] = fin[i];
     while (true) {
       int delta = dfs(src, inf);
-      if (!delta) break;
+      if (!delta)
+        break;
       ret += delta;
     }
   }

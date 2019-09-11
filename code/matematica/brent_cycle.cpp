@@ -14,7 +14,8 @@ ii brent_cycle(int x) {
     ++length;
   }
   t = h = x;
-  for (int i = length; i != 0; --i) h = f(h);
+  for (int i = length; i != 0; --i)
+    h = f(h);
   while (t != h) {
     t = f(t);
     h = f(h);

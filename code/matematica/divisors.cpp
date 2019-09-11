@@ -5,7 +5,8 @@ vector<ll> divisores(ll N) {
     if (N % div == 0) {
       divisors.push_back(div);
       k = N / div;
-      if (k != div) divisors.push_back(k);
+      if (k != div)
+        divisors.push_back(k);
     }
   }
   // caso precise ordenado

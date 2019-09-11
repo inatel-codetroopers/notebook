@@ -11,11 +11,14 @@ void articulationPointAndBridge(int u) {
     int v = adj[u][i];
     if (dfs_num[v] == -1) {
       dfs_parent[v] = u;
-      if (u == dfsRoot) rootChildren++;
+      if (u == dfsRoot)
+        rootChildren++;
 
       articulationPointAndBridge(v);
-      if (dfs_low[v] >= dfs_num[u]) articulation[u] = true;
-      if (dfs_low[v] > dfs_num[u]) bridges.pb(mp(u, v));
+      if (dfs_low[v] >= dfs_num[u])
+        articulation[u] = true;
+      if (dfs_low[v] > dfs_num[u])
+        bridges.pb(mp(u, v));
 
       dfs_low[u] = min(dfs_low[u], dfs_low[v]);
     } else if (v != dfs_parent[u])

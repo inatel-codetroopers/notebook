@@ -1,6 +1,6 @@
 // RSQ agora com queries e updates em intervalos. Precisa de Lazy
 // Propagation. Array A[] deve ser indexado em 0. Nem sempre o array
-// que sera modificado armazena apenas um valor. Nesse caso usamos
+// que sera modificado armazena apenas um valor, nesse caso usamos
 // struct para representar cada no.
 #define MAXN 500000
 ll A[MAXN], tree[4 * MAXN], lazy[4 * MAXN];
@@ -39,12 +39,13 @@ void propagate(int no, int a, int b) {
 }
 
 // update(i,j,v) faz A[k] += v, para i <= k <= j, em log(N)
-void update(int i, int j, ll v, int no = 1, int a = 0,
-            int b = N - 1) {
-  if (lazy[no]) propagate(no, a, b);
-  if (a > j || b < i) return;
+void update(int i, int j, ll v, int no = 1, int a = 0, int b = N - 1) {
+  if (lazy[no])
+    propagate(no, a, b);
+  if (a > j || b < i)
+    return;
   if (a >= i && b <= j) {
-    lazy[no] += v;  // atualiza apenas a flag da raiz da subarvore
+    lazy[no] += v; // atualiza apenas a flag da raiz da subarvore
     propagate(no, a, b);
     return;
   }
@@ -58,9 +59,12 @@ void update(int i, int j, ll v, int no = 1, int a = 0,
 
 // query(i,j) retorna o somatorio A[i] + A[i+1] + ... + A[j]
 ll query(int i, int j, int no = 1, int a = 0, int b = N - 1) {
-  if (lazy[no]) propagate(no, a, b);
-  if (a > j || b < i) return neutro;
-  if (a >= i && b <= j) return tree[no];
+  if (lazy[no])
+    propagate(no, a, b);
+  if (a > j || b < i)
+    return neutro;
+  if (a >= i && b <= j)
+    return tree[no];
   int m = (a + b) / 2;
   int esq = 2 * no;
   int dir = esq + 1;

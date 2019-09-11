@@ -10,7 +10,8 @@ void Z() {
   for (int i = 1; i < n; i++) {
     if (i > R) {
       L = R = i;
-      while (R < n && s[R - L] == s[R]) R++;
+      while (R < n && s[R - L] == s[R])
+        R++;
       z[i] = R - L;
       R--;
     } else {
@@ -19,7 +20,8 @@ void Z() {
         z[i] = z[k];
       else {
         L = i;
-        while (R < n && s[R - L] == s[R]) R++;
+        while (R < n && s[R - L] == s[R])
+          R++;
         z[i] = R - L;
         R--;
       }

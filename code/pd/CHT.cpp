@@ -12,7 +12,8 @@ void add(long long m, long long b) {
   }
 }
 long long query(long long x) {
-  if (pointer >= M.size()) pointer = M.size() - 1;
+  if (pointer >= M.size())
+    pointer = M.size() - 1;
   while (pointer < M.size() - 1 &&
          M[pointer + 1] * x + B[pointer + 1] <
              M[pointer] * x + B[pointer])
@@ -35,13 +36,13 @@ double intersept(hux a, hux b) {
   return double(b.b - a.b) / (a.a - b.a);
 }
 
-vector<pair<double, double> > convex_hux(const vector<hux> &v) {
+vector<pair<double, double>> convex_hux(const vector<hux> &v) {
   int p = 0, n = v.size(), bestai = v[0].a;
   double cross = 0.0;
   pair<double, int> aux;
 
-  priority_queue<pair<double, int> > pq;
-  vector<pair<double, double> > ret(n + 1, mp(-1, -1));
+  priority_queue<pair<double, int>> pq;
+  vector<pair<double, double>> ret(n + 1, mp(-1, -1));
 
   pq.push(mp(cross, p));
   ret[v[p].id].F = cross, ret[v[p].id].S = LINF;
@@ -50,7 +51,8 @@ vector<pair<double, double> > convex_hux(const vector<hux> &v) {
     aux = pq.top();
     cross = aux.F, p = aux.S;
 
-    if (v[i].a <= bestai) continue;
+    if (v[i].a <= bestai)
+      continue;
     bestai = v[i].a;
 
     double new_cross = intersept(v[i], v[p]);

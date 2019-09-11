@@ -27,7 +27,8 @@ void aho() {
   queue<int> q;
   rep(i, 0, cc) {
     int x = sig[0][i];
-    if (!x) continue;
+    if (!x)
+      continue;
     q.push(x);
     T[x] = 0;
   }
@@ -36,9 +37,11 @@ void aho() {
     q.pop();
     rep(i, 0, cc) {
       int x = sig[u][i];
-      if (!x) continue;
+      if (!x)
+        continue;
       int v = T[u];
-      while (v && !sig[v][i]) v = T[v];
+      while (v && !sig[v][i])
+        v = T[v];
       v = sig[v][i];
       T[x] = v;
       term[x] += term[v];
@@ -55,14 +58,18 @@ int mod = 1e9 + 7;
 ll pd[100][MAX];
 
 ll solve(int pos, int no) {
-  if (pos == 0) return 1;
-  if (pd[pos][no] != -1) return pd[pos][no];
+  if (pos == 0)
+    return 1;
+  if (pd[pos][no] != -1)
+    return pd[pos][no];
   ll ans = 0;
   rep(i, 0, cc) {
     int v = no;
-    while (v && !sig[v][i]) v = T[v];
+    while (v && !sig[v][i])
+      v = T[v];
     v = sig[v][i];
-    if (term[v]) continue;
+    if (term[v])
+      continue;
     ans = (ans + solve(pos - 1, v)) % mod;
   }
   return pd[pos][no] = ans;
@@ -74,7 +81,8 @@ void Qttd_de_Palavras() {
     memset(pd, -1, sizeof pd);
     cnt = 1;
     int l = readInt();
-    if (!l) break;
+    if (!l)
+      break;
     int n = readInt();
     string pattern;
     rep(i, 0, n) {
@@ -96,7 +104,8 @@ void busca(string s) {
   int x = 0;
   rep(i, 0, s.size()) {
     int c = C(s[i]);
-    while (x && !sig[x][c]) x = T[x];
+    while (x && !sig[x][c])
+      x = T[x];
     x = sig[x][c];
     alc[x] = 1;
   }
@@ -105,7 +114,8 @@ void busca(string s) {
 void Ql_Ocorreu() {
   string pattern, text;
   while (getline(cin, text)) {
-    if (text == "*") break;
+    if (text == "*")
+      break;
     memset(sig, 0, sizeof sig);
     memset(alc, 0, sizeof alc);
     cnt = 1;
@@ -118,7 +128,8 @@ void Ql_Ocorreu() {
     aho();
     busca(text);
     for (int i = cnt - 1; i >= 0; i--) {
-      if (alc[i]) alc[T[i]] = 1;
+      if (alc[i])
+        alc[T[i]] = 1;
     }
     rep(i, 0, n) {
       int u = v[i];
@@ -136,7 +147,8 @@ ll busca2(string s) {
   ll x = 0, cont = 0;
   rep(i, 0, s.size()) {
     int c = C(s[i]);
-    while (x && !sig[x][c]) x = T[x];
+    while (x && !sig[x][c])
+      x = T[x];
     x = sig[x][c];
     cont += term[x];
   }
@@ -146,7 +158,8 @@ ll busca2(string s) {
 void Qnts_vezes_Ocorreu() {
   string text, pattern;
   while (cin >> text) {
-    if (text == "*") break;
+    if (text == "*")
+      break;
     memset(sig, 0, sizeof sig);
     cnt = 1;
     int n = readInt();
@@ -164,9 +177,11 @@ void busca3(string s) {
   int x = 0;
   rep(i, 0, s.size()) {
     int c = C(s[i]);
-    while (x && !sig[x][c]) x = T[x];
+    while (x && !sig[x][c])
+      x = T[x];
     x = sig[x][c];
-    if (!alc[x]) alc[x] = i + 1;
+    if (!alc[x])
+      alc[x] = i + 1;
   }
 }
 
@@ -174,7 +189,8 @@ void Onde_Ocorreu() {
   string pattern, text;
   int tam[1000];
   while (cin >> text) {
-    if (text == "*") break;
+    if (text == "*")
+      break;
     memset(sig, 0, sizeof sig);
     memset(alc, 0, sizeof alc);
     cnt = 1;
