@@ -36,8 +36,8 @@ inline double det(double a11, double a12, double a13, double a21,
                   double a22, double a23, double a31, double a32,
                   double a33) {
 
-  return a11 * det(a22, a23, a32, a33) - a12 * det(a21, a23, a31, a33) +
-         a13 * det(a21, a22, a31, a32);
+  return a11 * det(a22, a23, a32, a33) -
+         a12 * det(a21, a23, a31, a33) + a13 * det(a21, a22, a31, a32);
 }
 inline double det(const PT &a, const PT &b, const PT &c) {
   return det(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z);
@@ -238,8 +238,8 @@ double polyhedronVol(vector<vector<PT>> poly) {
   cent = cent * (1.0 / (poly.size() * 3));
   double v = 0;
   for (i = 0; i < poly.size(); i++)
-    v += fabs(
-        signedTetrahedronVol(cent, poly[i][0], poly[i][1], poly[i][2]));
+    v += fabs(signedTetrahedronVol(cent, poly[i][0], poly[i][1],
+                                   poly[i][2]));
   return v;
 }
 
@@ -341,7 +341,8 @@ int cross(const line &l, const plane &pl, PT &res) {
   return 1;
 }
 
-bool cross(const plane &p1, const plane &p2, const plane &p3, PT &res) {
+bool cross(const plane &p1, const plane &p2, const plane &p3,
+           PT &res) {
   double d = det(p1.n, p2.n, p3.n);
   if (sgn(d) == 0) {
     return false;

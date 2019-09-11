@@ -1,10 +1,11 @@
-/*Encontra o convex hull de um conjunto de pontos.
+/*Encontra o convex hull de um conjunto de pontos em O(NlogN)
 pivot: Ponto base para a criacao do convex hull;
 radial_lt(): Ordena os pontos em sentido anti-horario (ccw).
 Input: Conjunto de pontos 2D;
 Output: Conjunto de pontos do convex hull, no sentido anti-horario;
 
-(1)Se for preciso manter pontos colineares na borda do convex hull, essa
+(1)Se for preciso manter pontos colineares na borda do convex hull,
+essa
 parte evita que eles sejam removidos;
 */
 

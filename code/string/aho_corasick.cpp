@@ -44,10 +44,10 @@ void aho() {
         continue;
       int v = T[u]; // No inicio v eh o maior prefixo e sufixo de u
       while (v && !sig[v][i])
-        v = T[v];    // Testa para todo v se tambem pode ser
-                     // prefixo-sufixo de x
+        v = T[v]; // Testa para todo v se tambem pode ser
+                  // prefixo-sufixo de x
       v = sig[v][i]; // Se dirige a posicao do maior prefixo-sufixo de x
-      T[x] = v;      // Salva que o maior prefixo-sufixo de x eh o no v
+      T[x] = v;   // Salva que o maior prefixo-sufixo de x eh o no v
       term[x] += term[v]; // Se v eh terminal e sufixo de x,
       q.push(x);          // x tambem sera terminal
     }

@@ -26,6 +26,6 @@ long long sum(int x1, int y1, int x2, int y2) {
   if (y1 > 0)
     soma -= S[x2][y1 - 1];
   if (x1 > 0 && y1 > 0)
-    soma += S[x1 - 1][x1 - 1];
+    soma += S[x1 - 1][y1 - 1];
   return soma;
 }

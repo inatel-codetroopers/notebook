@@ -41,7 +41,8 @@ void BellmanFord(int s, int t) {
     for (int j = 0; j < E; ++j) {
       int u = to[j ^ 1], v = to[j];
 
-      if (cap[j] > 0 && dist[u] != inf && dist[u] + cost[j] < dist[v]) {
+      if (cap[j] > 0 && dist[u] != inf &&
+          dist[u] + cost[j] < dist[v]) {
         stop = false;
         dist[v] = dist[u] + cost[j];
       }

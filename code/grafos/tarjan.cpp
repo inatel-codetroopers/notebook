@@ -17,7 +17,8 @@ void tarjanSCC(int u) {
     if (vis[v]) // condition for update
       dfs_low[u] = min(dfs_low[u], dfs_low[v]);
   }
-  if (dfs_low[u] == dfs_num[u]) { // if this is a root (start) of an SCC
+  if (dfs_low[u] ==
+      dfs_num[u]) { // if this is a root (start) of an SCC
     while (true) {
       int v = S.back();
       S.pop_back();

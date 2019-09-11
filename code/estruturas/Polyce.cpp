@@ -1,4 +1,3 @@
-
 // https://codeforces.com/blog/entry/11080
 
 #include <bits/stdc++.h>
@@ -32,10 +31,11 @@ void newVector() {
   // funciona como um vector, mas consegue algo a mais: (log(n))
   rope<int> v;
   rope<int>::iterator it;
-  int l, r;                               // segmento
-  rope<int> cur = v.substr(l, r - l + 1); // copia um segmento do vector
-  v.erase(l, r - l + 1);                  // apaga um segmento
-  v.insert(v.mutable_begin(), cur);       // insere um segmento
+  int l, r; // segmento
+  rope<int> cur =
+      v.substr(l, r - l + 1);       // copia um segmento do vector
+  v.erase(l, r - l + 1);            // apaga um segmento
+  v.insert(v.mutable_begin(), cur); // insere um segmento
   for (it = cur.mutable_begin(); it != cur.mutable_end(); it++)
     cout << *it << " "; // percorre ele
 }

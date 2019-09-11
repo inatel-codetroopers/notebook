@@ -5,14 +5,14 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 #define debug(x) cout << __LINE__ << ": " << #x << " = " << x << endl;
-#define debug2(x, y)                                                   \
-  cout << __LINE__ << ": " << #x << " = " << x << "  " << #y << " = "  \
+#define debug2(x, y)                                                  \
+  cout << __LINE__ << ": " << #x << " = " << x << "  " << #y << " = " \
        << y << endl;
 #define all(c) (c).begin(), (c).end()
 #define F first
 #define S second
-#define UNIQUE(c)                                                      \
-  sort(all(c));                                                        \
+#define UNIQUE(c)                                                     \
+  sort(all(c));                                                       \
   (c).resize(unique(all(c)) - c.begin());
 
 #define PI 3.1415926535897932384626433832795028841971

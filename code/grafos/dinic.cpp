@@ -19,10 +19,10 @@ void init(int _nnode, int _src, int _snk) {
 }
 
 void add(int a, int b, int c1, int c2) {
-  to[nedge] = b, cap[nedge] = c1, flow[nedge] = 0, prox[nedge] = fin[a],
-  fin[a] = nedge++;
-  to[nedge] = a, cap[nedge] = c2, flow[nedge] = 0, prox[nedge] = fin[b],
-  fin[b] = nedge++;
+  to[nedge] = b, cap[nedge] = c1, flow[nedge] = 0,
+  prox[nedge] = fin[a], fin[a] = nedge++;
+  to[nedge] = a, cap[nedge] = c2, flow[nedge] = 0,
+  prox[nedge] = fin[b], fin[b] = nedge++;
 }
 
 bool bfs() {

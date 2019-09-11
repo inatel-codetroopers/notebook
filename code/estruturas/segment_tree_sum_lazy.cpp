@@ -1,6 +1,6 @@
 // RSQ agora com queries e updates em intervalos. Precisa de Lazy
 // Propagation. Array A[] deve ser indexado em 0. Nem sempre o array
-// que sera modificado armazena apenas um valor. Nesse caso usamos
+// que sera modificado armazena apenas um valor, nesse caso usamos
 // struct para representar cada no.
 #define MAXN 500000
 ll A[MAXN], tree[4 * MAXN], lazy[4 * MAXN];

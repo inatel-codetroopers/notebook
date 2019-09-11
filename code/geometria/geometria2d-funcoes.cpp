@@ -67,9 +67,9 @@ double arg(point b, point a, point c) {
   return atan2(cross(u, v), dot(u, v));
 }
 
-////////////////////////////////////////////////////////////////
-////////Segmentos, Retas
-/////////////////
+//////////////////////////////////////////////////////////////////////
+/////////////////////////  Segmentos, Retas  /////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 // Determina se P esta entre o segmento fechado [A,B], inclusive
 bool between(point p, point a, point b) {
@@ -120,9 +120,9 @@ bool seg_intersect(point a, point b, point c, point d) {
   return false;
 }
 
-/* Encontra a interseccao das retas (p-q) e (r-s) assumindo que existe
- * apenas 1 intereccao. Se for entre segmentos, verificar se interseptam
- * primeiro. */
+// Encontra a interseccao das retas (p-q) e (r-s) assumindo que existe
+// apenas 1 intereccao. Se for entre segmentos, verificar se
+// interseptam primeiro.
 point line_intersect(point p, point q, point r, point s) {
   point a = q - p, b = s - r, c = point(cross(p, q), cross(r, s));
   double x = cross(point(a.x, b.x), c);
@@ -131,17 +131,20 @@ point line_intersect(point p, point q, point r, point s) {
 }
 
 // determine if lines from a to b and c to d are parallel or collinear
-bool LinesParallel(point a, point b, point c, point d) { // Nao testado
+bool LinesParallel(point a, point b, point c, point d) { //! Nao
+                                                         //! testado
   return fabs(cross(b - a, c - d)) < EPS;
 }
-bool LinesCollinear(point a, point b, point c, point d) { // Nao testado
-  return LinesParallel(a, b, c, d) && fabs(cross(a - b, a - c)) < EPS &&
+bool LinesCollinear(point a, point b, point c,
+                    point d) { //! Nao testado
+  return LinesParallel(a, b, c, d) &&
+         fabs(cross(a - b, a - c)) < EPS &&
          fabs(cross(c - d, c - a)) < EPS;
 }
 
-//////////////////////////
-// Triangulos
-/////////////////////////
+//////////////////////////////////////////////////////////////////////
+////////////////////////////  Triangulos  ////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 bool pointInTriangle(point p, point a, point b, point c) {
   // TODO
@@ -161,9 +164,9 @@ double area_heron(double a, double b, double c) {
               (a + (b - c)) / 16.0);
 }
 
-//////////////////////////
-// Circulos
-/////////////////////////
+//////////////////////////////////////////////////////////////////////
+////////////////////////////  Circulos  //////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 bool pointInCircle(point p, point c, double radius) {
   // Todo
@@ -194,9 +197,10 @@ double spherical_distance(double lt1, double lo1, double lt2,
   return r * acos(sin(a) * sin(b) + cos(a) * cos(b) * cos(c));
 }
 
-//////////////////////////
-// Planos
-/////////////////////////
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////  Planos  ///////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
 // Distancia entre (x,y,z) e plano ax+by+cz=d
 double distancePointPlane(double x, double y, double z, double a,
                           double b, double c, double d) {
@@ -211,7 +215,9 @@ struct circle {
   circle(cxpt c, double r) : c(c), r(r) {}
   circle() {}
 };
-double cross(const cxpt &a, const cxpt &b) { return imag(conj(a) * b); }
+double cross(const cxpt &a, const cxpt &b) {
+  return imag(conj(a) * b);
+}
 double dot(const cxpt &a, const cxpt &b) { return real(conj(a) * b); }
 
 // Area da interseccao de dois circulos

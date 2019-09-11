@@ -34,8 +34,8 @@ point centroide(const polygon &T) {
   return c;
 }
 
-/* Retorna o perimetro do poligono T. (pode n funcionar como esperado se
- * o poligono for uma linha reta (caso degenerado))*/
+/* Retorna o perimetro do poligono T. (pode n funcionar como esperado
+ * se o poligono for uma linha reta (caso degenerado))*/
 double poly_perimeter(polygon &T) {
   double perimeter = 0;
   int n = T.size();
