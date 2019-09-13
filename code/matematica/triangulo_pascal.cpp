@@ -12,11 +12,14 @@ void calc_pascal() {
       C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
   }
 }
-// Pascal triangle elements:
-C(33, 16) = 1.166.803.110 [int limit] C(34, 17) =
-    2.333.606.220 [unsigned int limit] C(66, 33) =
-        7.219.428.434.016.265.740 [int64_t limit] C(67, 33) =
-            14.226.520.737.620.288.370 [uint64_t limit]
-    // Fatorial
-    12 ! = 479.001.600 [(unsigned)int limit] 20 ! =
-        2.432.902.008.176.640.000 [(unsigned)int64_t limit]
+/*
+Pascal triangle elements:
+C(33, 16) = 1.166.803.110 [int limit]
+C(34, 17) = 2.333.606.220 [unsigned int limit]
+C(66, 33) = 7.219.428.434.016.265.740 [int64_t limit]
+C(67, 33) = 14.226.520.737.620.288.370 [uint64_t limit]
+
+Fatorial
+12 ! = 479.001.600 [(unsigned)int limit]
+20 ! = 2.432.902.008.176.640.000 [(unsigned)int64_t limit]
+*/
