@@ -70,7 +70,7 @@ estruturas/fenwick_tree.cpp	BIT
 estruturas/fenwick_tree2D.cpp	BIT 2D
 estruturas/sparse_table.cpp	Sparse Table
 estruturas/rmq.cpp	RMQ
-estruturas/persistent_segment_tree.cpp Persistent Seg Tree
+estruturas/persistent_segment_tree.cpp	Persistent Seg Tree
 estruturas/segment_tree_sum_lazy.cpp	Seg Tree com Lazy
 estruturas/union-find.cpp	Union-Find
 estruturas/treap.cpp	Treap
