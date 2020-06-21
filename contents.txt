@@ -90,7 +90,7 @@ string/hash_lcp.cpp	Longest Commom Prefix with Hash
 string/hash_min_lexicographic.cpp	Minimum Lexicographic Rotation
 string/manacher.cpp	Longest Palindrome (Manacher algorithm)
 string/Automato_sufix.cpp	Autômato de Sufixos
-string/suffix_arrray.cpp    Suffix Array
+string/suffix_array.cpp	Suffix Array
 string/Z.cpp	Z Algorithm
 
 
