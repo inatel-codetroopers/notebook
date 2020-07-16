@@ -112,6 +112,7 @@ pd/edit_distance.cpp	Edit Distance
 #sorting/merge_sort.cpp	Merge Sort
 sorting/Merge_sort_ninv.cpp	Merge Sort com num de Inversoes
 sorting/quick_sort.cpp	Quick Sort
+sorting/MergeSort_Inv.cpp Merge Sorte com Inversão
 
 
 [Miscelânia]
