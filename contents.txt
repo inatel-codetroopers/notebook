@@ -63,6 +63,7 @@ grafos/erdos_gallai.cpp	Erdos Gallai (UNIFEI)
 grafos/stable_marriage.cpp	Stable Marriage (UNIFEI)
 grafos/hungarian.cpp	Hungarian Max Bipartite Matching with Cost (UNIFEI)
 grafos/blossom.cpp	Blossom
+grafos/euler_tour.cpp Euler Tour
 
 
 [Estruturas de Dados]
