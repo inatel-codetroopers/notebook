@@ -77,7 +77,7 @@ estruturas/union-find.cpp	Union-Find
 estruturas/treap.cpp	Treap
 estruturas/segtree2D.cpp	Seg Tree 2D
 estruturas/Bit_2D_Dinamica.cpp  BIT 2D Dinamica
-
+estruturas/merge_tree.cpp Merge Tree
 estruturas/Polyce.cpp	Polyce
 estruturas/kd2.cpp	KD2
 
