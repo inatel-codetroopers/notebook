@@ -19,7 +19,6 @@ int lvl[MAX];             // level[v] = #arestas de v ate a raiz
 int N, M;                         // numero de vertices adj arestas
 vector<pair<int, int>> adj[MAXV]; // {v,custo}
 
-
 void dfs(int u, int p, int w = (1<<30)) {
 	pai[u][0] = p;
 	dist[u][0] = w;
@@ -51,3 +50,4 @@ int lca(int a, int b) {
 	a = pai[a][0], b = pai[b][0];
 	return menor;
 }
+
