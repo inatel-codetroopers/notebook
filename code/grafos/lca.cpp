@@ -17,8 +17,7 @@ int dist[MAX][LOG + 1];   // dist[v][i] = menor aresta de v subindo
 int lvl[MAX];             // level[v] = #arestas de v ate a raiz
 
 int N, M;                         // numero de vertices adj arestas
-vector<pair<int, int>> adj[MAXV]; // {v,custo}
-
+vector<pair<int, int>> adj[MAX]; // {v,custo}
 
 void dfs(int u, int p, int w = (1<<30)) {
 	pai[u][0] = p;
