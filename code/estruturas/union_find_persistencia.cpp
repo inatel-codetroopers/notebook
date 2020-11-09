@@ -1,11 +1,11 @@
-int pai[MAX_N+1];
-int tam[MAX_N+1];
-int his[MAX_N+1];
+int pai[MAX];
+int tam[MAX];
+int his[MAX];
 int tempo;
 
 void init() {
   tempo = 0;
-  for (int i = 1; i <= MAX_N; ++i) {
+  for (int i = 1; i <= MAX; ++i) {
     pai[i] = i;
     tam[i] = 1;
     his[i] = 0;
