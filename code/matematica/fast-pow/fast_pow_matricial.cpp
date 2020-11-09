@@ -1,42 +1,17 @@
-/**
- * fastpow() realiza exponenciacao rapida de matrizes
- * #param matrix_t M - matriz a ser elevada
- * #param ll expo - expoente
- * #param ll mod - o resultado sera calculado modulo este valor
- * #return - o resultado de (M ^ expo) % mod
- * #complexidade - O(size^3 * log(expo))
-**/
 
-#define MAX (ChangeMe) // Max size of square matrix
+vector<vector<int>> mult(vector<vector<int>> &a, vector<vector<int>> &b) {
+    vector<vector<int>> res(4, vector<int>(4, 0));
+    rep(i, 0, 4) rep(j, 0, 4) rep(k, 0, 4)
+        res[i][j] = (res[i][j]+1LL*a[i][k]*b[k][j])%MOD;
+    return res;
+}
 
-struct matrix_t {
-  ll m[MAX][MAX];
-  int sz;
-  matrix_t(int _sz) {
-    memset(m, 0, sizeof(m));
-    sz = _sz;
-  }
-  matrix_t multiply(const matrix_t other, ll mod) {
-    matrix_t ret(other.sz);
-    rep(i, 0, sz) rep(j, 0, sz) {
-      ret.m[i][j] = 0;
-      rep(k, 0, sz) ret.m[i][j] =
-          (ret.m[i][j] + (m[i][k] * other.m[k][j]) % mod) % mod;
+int exp(vector<vector<int>> b, ll e) {
+    vector<vector<int>> res(4, vector<int>(4, 0));
+    rep(i, 0, 4) res[i][i] = 1;
+    while(e) {
+        if(e&1LL) res = mult(res, b);
+        b = mult(b, b); e >>= 1;
     }
-    return ret;
-  }
-};
-
-matrix_t fastpow(matrix_t M, ll expo, ll mod) {
-  matrix_t ret(M.sz);
-  // Identity matrix
-  rep(i, 0, ret.sz) rep(j, 0, ret.sz) ret.m[i][j] = (i == j);
-
-  while (expo) {
-    if (expo & 1)
-      ret = ret.multiply(M, mod);
-    M = M.multiply(M, mod);
-    expo >>= 1;
-  }
-  return ret;
+    return (2LL*res[0][0]+res[0][1]+res[0][2]+res[0][3])%MOD;
 }
