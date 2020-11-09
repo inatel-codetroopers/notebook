@@ -51,4 +51,3 @@ int lca(int a, int b) {
 	a = pai[a][0], b = pai[b][0];
 	return menor;
 }
-
