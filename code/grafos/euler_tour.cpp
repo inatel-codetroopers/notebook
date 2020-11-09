@@ -10,3 +10,11 @@ void dfs(int u, int p) {
         if(v != p) dfs(v, u);
     range[u][1] = cnt;
 }
+
+// Binary Lifting
+int ancestor(int u, int H) {
+    PER(i, 20, 0)
+        if(H & (1<<i))
+            u = pai[u][i];
+    return u;
+}
