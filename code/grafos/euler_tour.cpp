@@ -1,3 +1,5 @@
+// Usar com LCA
+
 const int MAX = 1e5+5;
 vector<int> adj[MAX];
 int range[MAX][2];
