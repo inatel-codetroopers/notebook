@@ -19,6 +19,7 @@ pair<ll, ll> solve(ll A, ll B, ll Z1, ll Z2) {
 	ll G = gcd(A, B, X, Y), C = Z2-Z1;
 	if(C%G) return mk(-1LL, -1LL);	// impossivel
 	C /= G; X *= C; Y *= C;
+	// Acho o primeiro X positivo
 	if(X >= 0) {
 		ll K = (X * G) / B;
 		ans = A * (X - K * (B / G)) + Z1;
