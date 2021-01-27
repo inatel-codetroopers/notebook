@@ -10,6 +10,7 @@ template/template.h	Macros
 [Numerical algorithms]
 matematica/triangulo_pascal.cpp	Triângulo de Pascal
 matematica/gcd.cpp	GCD-LCM
+matematica/equacaoDiofantina.cpp  Equação Diofantina
 matematica/bezout.cpp	Bezout Theorem
 matematica/chinese_remainder.cpp	Teorema Chinês dos Restos
 matematica/crivo_eratostenes.cpp	Crivo de Eratóstenes
