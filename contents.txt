@@ -23,6 +23,7 @@ matematica/romberg.cpp	Romberg's method - Calcula Integral (UFS2010)
 matematica/pollard-rho.cpp	Pollard's rho algorithm (UFS2010)
 matematica/miller-rabin.cpp	Miller-Rabin's algorithm (UFS2010)
 matematica/num_digits_factorial.cpp	Quantidade de dígitos de N! na base B
+matematica/prip.cpp Primeiros P dígitos de N^K
 matematica/num_trailing_zeros.cpp	Quantiade de zeros a direita de N! na base B
 matematica/bsgs.cpp	Baby Step Giant Step
 matematica/primes_between.cpp	Primos num intervalo
