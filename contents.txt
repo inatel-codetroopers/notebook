@@ -14,6 +14,7 @@ matematica/equacaoDiofantina.cpp  Equação Diofantina
 matematica/bezout.cpp	Bezout Theorem
 matematica/chinese_remainder.cpp	Teorema Chinês dos Restos
 matematica/crivo_eratostenes.cpp	Crivo de Eratóstenes
+matematica/crivo_linear.cpp Crivo Linear
 matematica/divisors.cpp	Divisores de N
 matematica/number_theory.cpp	Funções com Números Primos (Crivo, Fatoração, PHI, etc)
 matematica/fast-pow/fast_pow.cpp	Exponenciação Modular Rápida
