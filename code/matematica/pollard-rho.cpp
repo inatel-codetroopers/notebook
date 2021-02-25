@@ -1,18 +1,34 @@
 // Retorna um fator primo de N, util para fatorizacao quando N for
 // grande.
-ll pollard_r, pollard_n;
-ll f(ll val) { return (val * val + pollard_r) % pollard_n; }
-ll myabs(ll a) { return a >= 0 ? a : -a; }
-ll pollard(ll n) {
-  srand(unsigned(time(0)));
-  pollard_n = n;
-  long long d = 1;
-  do {
-    d = 1;
-    pollard_r = rand() % n;
-    long long x = 2, y = 2;
-    while (d == 1)
-      x = f(x), y = f(f(y)), d = __gcd(myabs(x - y), n);
-  } while (d == n);
-  return d;
+
+ll mult(ll a, ll b, ll mod) {
+	// return (a * b) % mod com mod mt grande
+	long long result = 0;
+	while(b) {
+		if(b & 1)
+			result = (result + a) % mod;
+		a = (a + a) % mod;
+		b >>= 1;
+	}
+	return result;
 }
+
+ll f(ll x, ll c, ll mod) {
+	return (mult(x, x, mod) + c) % mod;
+}
+
+// recomendo chamar rho(n, n, 1)
+ll rho(ll n, ll x0, ll c) {
+	if(n == 1) return 0;
+	ll x = x0, y = x0, g = 1;
+	int cnt = 0, lim = 1e5;
+	while(g == 1 && ++cnt < lim) {
+		x = f(x, c, n);
+		y = f(y, c, n);
+		y = f(y, c, n);
+		g = __gcd(abs(x - y), n);
+	}
+	if(cnt == lim) return n;
+	return g;
+}
+
