@@ -31,4 +31,3 @@ ll rho(ll n, ll x0, ll c) {
 	if(cnt == lim) return n;
 	return g;
 }
-
