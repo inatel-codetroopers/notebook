@@ -1,78 +1,79 @@
-const int MAX = 100010;
-int gap, tam, sa[MAX], pos[MAX], lcp[MAX], tmp[MAX];
-
-bool sufixCmp(int i, int j) {
-  if (pos[i] != pos[j])
-    return pos[i] < pos[j];
-  i += gap, j += gap;
-  return (i < tam && j < tam) ? pos[i] < pos[j] : i > j;
+vector<int> suffix_array(char s[]){
+    int n = strlen(s), N = n + 256;
+    vector<int> sa(n), ra(n);
+    for(int i = 0; i < n; i++) sa[i] = i, ra[i] = s[i];
+    for(int k = 0; k < n; k ? k *= 2 : k++){
+        vector<int> nsa(sa), nra(n), cnt(N);
+        for(int i = 0; i < n; i++) nsa[i] = (nsa[i] - k + n) % n;
+        for(int i = 0; i < n; i++) cnt[ra[i]]++;
+        for(int i = 1; i < N; i++) cnt[i] += cnt[i - 1];
+        for(int i = n - 1; i >= 0; i--) sa[--cnt[ra[nsa[i]]]] = nsa[i];
+ 
+        int r = 0;
+        for(int i = 1; i < n; i++){
+            if(ra[sa[i]] != ra[sa[i - 1]]) r++;
+            else if(ra[(sa[i] + k) % n] != ra[(sa[i - 1] + k) % n]) r++;
+            nra[sa[i]] = r;
+        }
+        ra = nra;
+    }
+    return sa;
 }
-void buildSA(char s[]) {
-  tam = strlen(s);
-  for (int i = 0; i < tam; i++)
-    sa[i] = i, pos[i] = s[i], tmp[i] = 0;
-
-  for (gap = 1;; gap *= 2) {
-    sort(sa, sa + tam, sufixCmp);
-    tmp[0] = 0;
-    for (int i = 0; i < tam - 1; i++)
-      tmp[i + 1] = tmp[i] + sufixCmp(sa[i], sa[i + 1]);
-    for (int i = 0; i < tam; i++)
-      pos[sa[i]] = tmp[i];
-    if (tmp[tam - 1] == tam - 1)
-      break;
-  }
-}
-ll buildLCP(char s[]) {
-  ll sum = 0;
-  for (int i = 0, k = 0; i < tam; i++) {
-    if (pos[i] == tam - 1)
-      continue;
-    for (int j = sa[pos[i] + 1]; s[i + k] == s[j + k];)
-      k++;
-    lcp[pos[i] + 1] = k;
-    sum += k;
-    if (k > 0)
-      k--;
-  }
-  return sum;
-}
-void PrintAll(char s[]) {
-  printf("SA\ttam\tLCP\tSuffix\n");
-  rep(i, 0, tam) printf("%2d\t%2d\t%2d\t%s\n", sa[i], tam - sa[i],
-                        lcp[i], s + sa[i]);
-}
-ll num_subs(ll m) { return (ll)tam * (tam + 1) / 2 - m; }
-ll num_subsrn() {
-  ll ret = 0;
-  rep(i, 1, tam) if (lcp[i] > lcp[i - 1]) ret += lcp[i] - lcp[i - 1];
-  return ret;
-}
-void printans(char s[], int n) {
-  int maior = 0, id = -1;
-  rep(i, 0, tam) if (lcp[i] > n && lcp[i] > maior) maior = lcp[i],
-                                                   id = i;
-  if (id == -1)
-    printf("*");
-  else
-    rep(i, sa[id], sa[id] + maior) printf("%c", s[i]);
-  printf("\n");
+ 
+vector<int> kasai(char s[], vector<int> sa){
+    int n = strlen(s), k = 0;
+    vector<int> ra(n), lcp(n);
+    for(int i = 0; i < n; i++) ra[sa[i]] = i;
+    for(int i = 0; i < n; i++){
+        if(k) k--;
+        if(ra[i] == n - 1) {k = 0; continue;}
+        int j = sa[ra[i] + 1];
+        while(k < n && s[(i + k) % n] == s[(j + k) % n]) k++;
+        lcp[ra[i]] = k;
+        if(ra[(sa[ra[i]] + 1) % n] > ra[(sa[ra[j]] + 1) % n]) k = 0;
+    }
+    return lcp;
 }
 
-char s[MAX];
-int main() {
-  while (1) {
-    scanf("%s", s);
-    if (s[0] == '*')
-      break;
+bool isValid(char c){
+	return c>='a' && c<='z';
+}
+vector <int> ranks(char s[], vector <int> sa, vector <int> lcp){
+	int n = strlen(s), k = 0;
+	vector <int> rk(n);
+	for(int i=0; i<n; i++){
+		if(!isValid(s[i])){ k++; rk[i] = -1; }
+		else{ rk[i] = k; }
+	}
+	return rk;
+}
 
-    buildSA(s);
-    ll m = buildLCP(s);
+vector <int> sizes(char s[], vector <int> sa, vector <int> lcp){
+	int n = strlen(s), len = 0;
+	vector <int> sz(n);
+	for(int i=n-1; i>=0; i--){
+		if(!isValid(s[i])){ len = 0; sz[i] = -1; }
+		else{ len++; sz[i] = len; }
+	}
+	return sz;
+}
 
-    PrintAll(s); // printa sa, lcp, suffixs
-    // printf("%lld\n", num_subs(m)); //numero de substrings nao
-    // repetidas printf("%lld\n", num_subsrn()); //numero de substrings
-    // que se repete printans(s, 2); //maior substring de tamanho maior
-    // ou igual a n que se repete
-  }
+void PrintAll(char s[], vector <int> sa, vector <int> lcp, vector <int> rk, vector <int> sz) {
+	int n = strlen(s);
+	printf("RK\tSZ\tSA\ttam\tLCP\tSuffix\n");
+	rep(i, 0, n){
+		printf("%2d\t%2d\t%2d\t%2d\t%2d\t%s\n", rk[sa[i]], sz[sa[i]], sa[i], n-sa[i], lcp[i], s+sa[i]);
+	}
+}
+
+int main(){
+	
+	char s[] = "macarrao#batata$brigadeiro";
+	vector <int> sa = suffix_array(s);
+	vector <int> lcp = kasai(s, sa);
+	vector <int> rk = ranks(s, sa, lcp);
+	vector <int> sz = sizes(s, sa, lcp);
+	PrintAll(s, sa, lcp, rk, sz);
+	
+	return 0;
 }

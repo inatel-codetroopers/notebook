@@ -1,5 +1,5 @@
 // Retorna a menor string lexicografica de s. Necessario my_hash() e
-// lcp()
+// lcp() longest common prefix - usar bb e myhash
 string min_lex_rot(string s) {
   int t = s.size();
   precompute(s); // hashing
