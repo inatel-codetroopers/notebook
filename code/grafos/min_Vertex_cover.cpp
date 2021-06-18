@@ -11,4 +11,6 @@ void minVertexCorver() {
     if(vis[i+N] == 1)
       l2.pb(i+N);
 }
+
+// TODO: MANEIRAS DE CALCULAR MINIMUN EDGE, PATH COVER
 	
