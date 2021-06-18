@@ -53,10 +53,8 @@ grafos/tarjan.cpp	Tarjan
 grafos/kosaraju.cpp	Kosaraju
 grafos/2-sat.cpp	2-Sat
 grafos/lca.cpp	LCA
-grafos/lca_ST.cpp	LCA (Sparse Table)
 grafos/matching.cpp	Maximum Bipartite Matching
 grafos/hopcroft_karp.cpp	Hopcroft Karp - Maximum Bipartite Matching (UNIFEI)
-grafos/flow.cpp	Network Flow (lento)
 grafos/dinic.cpp	Network Flow - Dinic
 grafos/mcmf_struct.cpp	Min Cost Max Flow
 grafos/mcmf_stefano.cpp	Min Cost Max Flow (Stefano) 
@@ -89,20 +87,18 @@ estruturas/Bit_2D_Dinamica.cpp  BIT 2D Dinamica
 estruturas/merge_tree.cpp Merge Tree
 estruturas/Polyce.cpp	Polyce
 estruturas/kd2.cpp	KD2
+estruturas/interval_color_change.cpp	Interval Color Change
 
 
 [Strings]
 string/kmp.cpp	KMP
 #string/aho_corasick.cpp	Aho Corasick
 string/Aho-1.cpp	Aho Corasick
-string/suffix_array.cpp	Suffix Array
-string/SufixArray.cpp	Suffix Array (Gugu)
+string/SufixArray.cpp	Suffix Array
 string/hashing.cpp	Rolling Hash
-string/hash_lcp.cpp	Longest Commom Prefix with Hash
 string/hash_min_lexicographic.cpp	Minimum Lexicographic Rotation
 string/manacher.cpp	Longest Palindrome (Manacher algorithm)
 string/Automato_sufix.cpp	Autômato de Sufixos
-string/suffix_array.cpp	Suffix Array
 string/Z.cpp	Z Algorithm
 
 

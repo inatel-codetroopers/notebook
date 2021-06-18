@@ -30,5 +30,3 @@ int matching(int X, int Y) {
   }
   return mcbm;
 }
-
-int main() { return 0; }
