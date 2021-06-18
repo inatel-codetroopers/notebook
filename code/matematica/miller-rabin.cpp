@@ -1,28 +1,30 @@
-// Teste probabilistico de primalidade
-bool miller_rabin(ll n, ll base) {
-  if (n <= 1)
-    return false;
-  if (n % 2 == 0)
-    return n == 2;
-  ll s = 0, d = n - 1;
-  while (d % 2 == 0)
-    d /= 2, ++s;
-  ll base_d = fastpow(base, d, n);
-  if (base_d == 1)
+typedef __uint128_t u128;
+
+bool check_composite(ll n, ll a, ll d, int s) {
+    ll x = fastpow(a, d, n);
+    if(x == 1 || x == n - 1)
+        return false;
+    for(int r = 1; r < s; r++) {
+        x = (u128)x * x % n;  // cuidado na multiplicação
+        if(x == n - 1)
+            return false;
+    }
     return true;
-  ll base_2r = base_d;
-  for (ll i = 0; i < s; ++i) {
-    if (base_2r == 1)
-      return false;
-    if (base_2r == n - 1)
-      return true;
-    base_2r = base_2r * base_2r % n;
-  }
-  return false;
 }
-bool isprime(ll n) {
-  if (n == 2 || n == 7 || n == 61)
+
+bool MillerRabin(ll n) {
+    if(n < 2) return false;
+    int r = 0;
+    ll d = n - 1;
+    while((d & 1) == 0) {
+        d >>= 1;
+        r++;
+    }
+    for(int a : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
+        if(n == a)
+            return true;
+        if(check_composite(n, a, d, r))
+            return false;
+    }
     return true;
-  return miller_rabin(n, 2) && miller_rabin(n, 7) &&
-         miller_rabin(n, 61);
 }
