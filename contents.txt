@@ -87,6 +87,7 @@ estruturas/treap.cpp	Treap
 estruturas/segtree2D.cpp	Seg Tree 2D
 estruturas/Bit_2D_Dinamica.cpp  BIT 2D Dinamica
 estruturas/merge_tree.cpp Merge Tree
+estruturas/seg_tree_bit.cpp Seg Tree de BIT
 estruturas/Polyce.cpp	Polyce
 estruturas/kd2.cpp	KD2
 
