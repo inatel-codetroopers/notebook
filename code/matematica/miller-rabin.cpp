@@ -5,7 +5,7 @@ bool check_composite(ll n, ll a, ll d, int s) {
     if(x == 1 || x == n - 1)
         return false;
     for(int r = 1; r < s; r++) {
-        x = (u128)x * x % n;  // cuidado na multiplicação
+        x = (u128)x * x % n;  // cuidado na multiplicacao
         if(x == n - 1)
             return false;
     }

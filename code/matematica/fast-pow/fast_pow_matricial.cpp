@@ -13,6 +13,6 @@ int exp(vector<vector<int>> b, ll e) {
         if(e&1LL) res = mult(res, b);
         b = mult(b, b); e >>= 1;
     }
-    // Return depende da questão, geralemte é a soma da primeira linha
+    // Return depende da questao, geralmente eh a soma da primeira linha
     return (2LL*res[0][0]+res[0][1]+res[0][2]+res[0][3])%MOD;
 }

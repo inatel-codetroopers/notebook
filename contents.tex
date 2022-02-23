@@ -10,6 +10,9 @@
 \subsection{GCD-LCM}
 \raggedbottom\lstinputlisting[style=cpp]{code/matematica/gcd.cpp}
 \hrulefill
+\subsection{Equação Diofantina}
+\raggedbottom\lstinputlisting[style=cpp]{code/matematica/equacaoDiofantina.cpp}
+\hrulefill
 \subsection{Bezout Theorem}
 \raggedbottom\lstinputlisting[style=cpp]{code/matematica/bezout.cpp}
 \hrulefill
@@ -18,6 +21,9 @@
 \hrulefill
 \subsection{Crivo de Eratóstenes}
 \raggedbottom\lstinputlisting[style=cpp]{code/matematica/crivo_eratostenes.cpp}
+\hrulefill
+\subsection{Crivo Linear}
+\raggedbottom\lstinputlisting[style=cpp]{code/matematica/crivo_linear.cpp}
 \hrulefill
 \subsection{Divisores de N}
 \raggedbottom\lstinputlisting[style=cpp]{code/matematica/divisors.cpp}
@@ -45,6 +51,9 @@
 \hrulefill
 \subsection{Quantidade de dígitos de N! na base B}
 \raggedbottom\lstinputlisting[style=cpp]{code/matematica/num_digits_factorial.cpp}
+\hrulefill
+\subsection{Primeiros P dígitos de $N^K$}
+\raggedbottom\lstinputlisting[style=cpp]{code/matematica/prip.cpp}
 \hrulefill
 \subsection{Quantiade de zeros a direita de N! na base B}
 \raggedbottom\lstinputlisting[style=cpp]{code/matematica/num_trailing_zeros.cpp}
@@ -108,17 +117,11 @@
 \subsection{LCA}
 \raggedbottom\lstinputlisting[style=cpp]{code/grafos/lca.cpp}
 \hrulefill
-\subsection{LCA (Sparse Table)}
-\raggedbottom\lstinputlisting[style=cpp]{code/grafos/lca_ST.cpp}
-\hrulefill
 \subsection{Maximum Bipartite Matching}
 \raggedbottom\lstinputlisting[style=cpp]{code/grafos/matching.cpp}
 \hrulefill
 \subsection{Hopcroft Karp - Maximum Bipartite Matching (UNIFEI)}
 \raggedbottom\lstinputlisting[style=cpp]{code/grafos/hopcroft_karp.cpp}
-\hrulefill
-\subsection{Network Flow (lento)}
-\raggedbottom\lstinputlisting[style=cpp]{code/grafos/flow.cpp}
 \hrulefill
 \subsection{Network Flow - Dinic}
 \raggedbottom\lstinputlisting[style=cpp]{code/grafos/dinic.cpp}
@@ -147,6 +150,12 @@
 \subsection{Blossom}
 \raggedbottom\lstinputlisting[style=cpp]{code/grafos/blossom.cpp}
 \hrulefill
+\subsection{Euler Tour}
+\raggedbottom\lstinputlisting[style=cpp]{code/grafos/euler_tour.cpp}
+\hrulefill
+\subsection{Min Vertex Corver}
+\raggedbottom\lstinputlisting[style=cpp]{code/grafos/min_Vertex_cover.cpp}
+\hrulefill
 
 \section{Estruturas de Dados}
 \subsection{BIT}
@@ -161,14 +170,29 @@
 \subsection{RMQ}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/rmq.cpp}
 \hrulefill
+\subsection{HLD}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/hld.cpp}
+\hrulefill
+\subsection{Centroid Decomposition}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/CentroidDecomposition.cpp}
+\hrulefill
 \subsection{Persistent Seg Tree}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/persistent_segment_tree.cpp}
 \hrulefill
 \subsection{Seg Tree com Lazy}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/segment_tree_sum_lazy.cpp}
 \hrulefill
+\subsection{Debug Seg Tree}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/DegubSegTree.cpp}
+\hrulefill
 \subsection{Union-Find}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/union-find.cpp}
+\hrulefill
+\subsection{Unio-Find Rollback}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/union_find_rollback.cpp}
+\hrulefill
+\subsection{Union-Find Persistencia}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/union_find_persistencia.cpp}
 \hrulefill
 \subsection{Treap}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/treap.cpp}
@@ -176,11 +200,20 @@
 \subsection{Seg Tree 2D}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/segtree2D.cpp}
 \hrulefill
+\subsection{BIT 2D Dinamica}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/Bit_2D_Dinamica.cpp}
+\hrulefill
+\subsection{Merge Tree}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/merge_tree.cpp}
+\hrulefill
 \subsection{Polyce}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/Polyce.cpp}
 \hrulefill
 \subsection{KD2}
 \raggedbottom\lstinputlisting[style=cpp]{code/estruturas/kd2.cpp}
+\hrulefill
+\subsection{Interval Color Change}
+\raggedbottom\lstinputlisting[style=cpp]{code/estruturas/interval_color_change.cpp}
 \hrulefill
 
 \section{Strings}
@@ -191,16 +224,10 @@
 \raggedbottom\lstinputlisting[style=cpp]{code/string/Aho-1.cpp}
 \hrulefill
 \subsection{Suffix Array}
-\raggedbottom\lstinputlisting[style=cpp]{code/string/suffix_array.cpp}
-\hrulefill
-\subsection{Suffix Array (Gugu)}
 \raggedbottom\lstinputlisting[style=cpp]{code/string/SufixArray.cpp}
 \hrulefill
 \subsection{Rolling Hash}
 \raggedbottom\lstinputlisting[style=cpp]{code/string/hashing.cpp}
-\hrulefill
-\subsection{Longest Commom Prefix with Hash}
-\raggedbottom\lstinputlisting[style=cpp]{code/string/hash_lcp.cpp}
 \hrulefill
 \subsection{Minimum Lexicographic Rotation}
 \raggedbottom\lstinputlisting[style=cpp]{code/string/hash_min_lexicographic.cpp}
@@ -210,9 +237,6 @@
 \hrulefill
 \subsection{Autômato de Sufixos}
 \raggedbottom\lstinputlisting[style=cpp]{code/string/Automato_sufix.cpp}
-\hrulefill
-\subsection{Suffix Array}
-\raggedbottom\lstinputlisting[style=cpp]{code/string/suffix_array.cpp}
 \hrulefill
 \subsection{Z Algorithm}
 \raggedbottom\lstinputlisting[style=cpp]{code/string/Z.cpp}
@@ -250,6 +274,9 @@
 \hrulefill
 \subsection{Quick Sort}
 \raggedbottom\lstinputlisting[style=cpp]{code/sorting/quick_sort.cpp}
+\hrulefill
+\subsection{Merge Sort com Inversão}
+\raggedbottom\lstinputlisting[style=cpp]{code/sorting/MergeSort_Inv.cpp}
 \hrulefill
 
 \section{Miscelânia}
