@@ -10,11 +10,11 @@ template/template.h	Macros
 [Numerical algorithms]
 matematica/triangulo_pascal.cpp	Triângulo de Pascal
 matematica/gcd.cpp	GCD-LCM
-matematica/equacaoDiofantina.cpp  Equação Diofantina
+matematica/equacaoDiofantina.cpp	Equação Diofantina
 matematica/bezout.cpp	Bezout Theorem
 matematica/chinese_remainder.cpp	Teorema Chinês dos Restos
 matematica/crivo_eratostenes.cpp	Crivo de Eratóstenes
-matematica/crivo_linear.cpp Crivo Linear
+matematica/crivo_linear.cpp	Crivo Linear
 matematica/divisors.cpp	Divisores de N
 matematica/number_theory.cpp	Funções com Números Primos (Crivo, Fatoração, PHI, etc)
 matematica/fast-pow/fast_pow.cpp	Exponenciação Modular Rápida
@@ -24,7 +24,7 @@ matematica/romberg.cpp	Romberg's method - Calcula Integral (UFS2010)
 matematica/pollard-rho.cpp	Pollard's rho algorithm (UFS2010)
 matematica/miller-rabin.cpp	Miller-Rabin's algorithm (UFS2010)
 matematica/num_digits_factorial.cpp	Quantidade de dígitos de N! na base B
-matematica/prip.cpp Primeiros P dígitos de N^K
+matematica/prip.cpp	Primeiros P dígitos de $N^K$
 matematica/num_trailing_zeros.cpp	Quantiade de zeros a direita de N! na base B
 matematica/bsgs.cpp	Baby Step Giant Step
 matematica/primes_between.cpp	Primos num intervalo
@@ -64,8 +64,8 @@ grafos/erdos_gallai.cpp	Erdos Gallai (UNIFEI)
 grafos/stable_marriage.cpp	Stable Marriage (UNIFEI)
 grafos/hungarian.cpp	Hungarian Max Bipartite Matching with Cost (UNIFEI)
 grafos/blossom.cpp	Blossom
-grafos/euler_tour.cpp Euler Tour
-grafos/min_Vertex_cover.cpp Min Vertex Corver
+grafos/euler_tour.cpp	Euler Tour
+grafos/min_Vertex_cover.cpp	Min Vertex Corver
 
 
 [Estruturas de Dados]
@@ -73,18 +73,18 @@ estruturas/fenwick_tree.cpp	BIT
 estruturas/fenwick_tree2D.cpp	BIT 2D
 estruturas/sparse_table.cpp	Sparse Table
 estruturas/rmq.cpp	RMQ
-estruturas/hld.cpp  HLD
-estruturas/CentroidDecomposition.cpp  Centroid Decomposition
+estruturas/hld.cpp	HLD
+estruturas/CentroidDecomposition.cpp	Centroid Decomposition
 estruturas/persistent_segment_tree.cpp	Persistent Seg Tree
 estruturas/segment_tree_sum_lazy.cpp	Seg Tree com Lazy
-estruturas/DegubSegTree.cpp Debug Seg Tree
+estruturas/DegubSegTree.cpp	Debug Seg Tree
 estruturas/union-find.cpp	Union-Find
-estruturas/union_find_rollback.cpp  Unio-Find Rollback
-estruturas/union_find_persistencia.cpp  Union-Find Persistencia
+estruturas/union_find_rollback.cpp	Unio-Find Rollback
+estruturas/union_find_persistencia.cpp	Union-Find Persistencia
 estruturas/treap.cpp	Treap
 estruturas/segtree2D.cpp	Seg Tree 2D
-estruturas/Bit_2D_Dinamica.cpp  BIT 2D Dinamica
-estruturas/merge_tree.cpp Merge Tree
+estruturas/Bit_2D_Dinamica.cpp	BIT 2D Dinamica
+estruturas/merge_tree.cpp	Merge Tree
 estruturas/Polyce.cpp	Polyce
 estruturas/kd2.cpp	KD2
 estruturas/interval_color_change.cpp	Interval Color Change
@@ -118,7 +118,7 @@ pd/edit_distance.cpp	Edit Distance
 #sorting/merge_sort.cpp	Merge Sort
 sorting/Merge_sort_ninv.cpp	Merge Sort com num de Inversoes
 sorting/quick_sort.cpp	Quick Sort
-sorting/MergeSort_Inv.cpp Merge Sorte com Inversão
+sorting/MergeSort_Inv.cpp	Merge Sort com Inversão
 
 
 [Miscelânia]

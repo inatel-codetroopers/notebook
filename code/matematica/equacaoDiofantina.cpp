@@ -33,6 +33,6 @@ pair<ll, ll> solve(ll A, ll B, ll Z1, ll Z2) {
 	return mk(A * (B / G), ans);
 }
 
-// Anotação importante, Há duas formas de alterar as soluções:
+// Anotacao importante, Ha duas formas de alterar as solucoes:
 // (1) -> X = X + K * (B / G) e Y = Y - K * (A / G)
 // (2) -> X = X - K * (B / G) e Y = Y + K * (A / G)

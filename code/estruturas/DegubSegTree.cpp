@@ -1,4 +1,4 @@
-const int QT = 16; //potência de 2
+const int QT = 16; //potencia de 2
 
 void printa() {
 	int no = 1;
